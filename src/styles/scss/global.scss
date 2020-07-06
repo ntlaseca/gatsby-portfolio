@@ -1,0 +1,467 @@
+// Required
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+// Optional
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/code";
+@import "~bootstrap/scss/grid";
+
+/*
+ * Universal Styles
+ */
+
+$brand-color: rgba(106, 98, 250, 1);
+$text-color: rgba(6, 6, 6, 1);
+$bg-color: rgba(230, 230, 230, 1);
+$serif-stack: 'Nimbus Roman', 'Times New Roman', serif;
+$sans-stack: 'Inter', sans-serif;
+
+@mixin transition($args...) {
+-webkit-transition: $args;
+   -moz-­transition: $args;
+    -ms-transition: $args;
+     -o-transition: $args;
+        transition: $args;
+}
+
+@mixin filter($type,$amount) {
+-webkit-filter: unquote($type+unquote('(#{$amount})'));
+   -moz-filter: unquote($type+unquote('(#{$amount})'));
+    -ms-filter: unquote($type+unquote('(#{$amount})'));
+     -o-filter: unquote($type+unquote('(#{$amount})'));
+        filter: unquote($type+unquote('(#{$amount})'));
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }  
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @-o-keyframes #{$name} {
+    @content;
+  }  
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+ 	   -moz-animation: #{$str};
+ 	    -ms-animation: #{$str};
+ 	     -o-animation: #{$str};
+ 	        animation: #{$str};
+}
+
+/* manrope-variable */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  src: url('../fonts/inter[slnt,wght].woff2') format('woff2'),
+       url('../fonts/inter[slnt,wght].ttf') format('truetype-variations'),
+}
+
+@font-face {
+  font-family: 'Nimbus Roman';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/NimbusRomNo9L-Reg.woff2') format('woff2'),
+       url('../fonts/NimbusRomNo9L-Reg.otf') format('opentype-variations'),
+}
+
+@font-face {
+  font-family: 'Metropolis';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/Metropolis-Bold.woff2') format('woff2'),
+       url('../fonts/Metropolis-Bold.woff') format('woff'),
+       url('../fonts/Metropolis-Bold.otf') format('opentype-variations'),
+       url('../fonts/Metropolis-Bold.ttf') format('truetype-variations'),
+       url('../fonts/Metropolis-Bold.eot?#iefix') format('embedded-opentype'),
+}
+
+body {
+  background-color: $bg-color;
+}
+
+html, body {
+  font-family: $sans-stack;
+  color: $text-color;
+  font-size: 28px;
+  cursor: url('../cursors/cursor_pointed_min.svg'), default;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $serif-stack;
+  font-weight: 400;
+  -ms-word-break: break-word;
+	word-break: break-word;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+  hyphens: auto;
+  margin-top: 0;
+  letter-spacing: -.02em;
+}
+
+h1 {
+  font-size: 4.5vmax;
+  line-height: 1.2em;
+  margin-bottom: 1em;
+
+  & a:hover {
+    color: rgba(0,0,0,0);
+    -webkit-text-stroke: .02em $brand-color;
+  }
+}
+
+h2{
+  font-size: 2.5rem;
+  line-height: 1em;
+  margin-bottom: 1em;
+}
+
+h3 {
+  font-size: 2rem;
+  line-height: 1em;
+  margin-bottom: 1em;
+}
+
+h4 {
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 0.2em;
+}
+
+p {
+  font-size: 1rem;
+  font-variation-settings: 'wght' 400, 'wdth' 100;
+  line-height: 1.5em;
+  margin-bottom: 1em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  font-size: inherit;
+  color: inherit;
+  font-variation-settings: 'wght' 600, 'wdth' 100;
+  cursor: url('../cursors/cursor_link_min.svg') 22 22, pointer;
+  text-decoration: underline;
+  -ms-word-break: break-word;
+	word-break: break-word;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+
+	&:hover {
+    color: $brand-color;
+		text-decoration: none;
+  }
+  
+  &:focus {
+    outline: 2px solid $brand-color;
+    text-decoration: none;
+  }
+
+	&:active {
+    color: $brand-color;
+    text-decoration: none;
+  }
+  
+  & h3 {
+    font-family: $sans-stack;
+  }
+}
+
+::selection, ::-moz-selection {
+	color: white;
+	background: $brand-color;
+}
+
+canvas {
+	outline: none; /* desktop browsers */
+	-webkit-tap-highlight-color: rgba(255,255,255,0); /* mobile webkit */
+}
+
+
+/*
+ * Bootstrap Changes
+ */
+
+.container, .container-fluid {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.row {
+  margin: -.5rem;
+}
+
+[class*="col-"] {
+  padding: .5rem;
+}
+
+
+/*
+ * Layout Styles
+ */
+
+#logo {
+  position: fixed;
+  z-index: 2;
+
+  & img {
+    height: 2.5rem;
+    @include transition(250ms);
+
+    &:hover {
+      background: none;
+      @include filter(opacity, 50%);
+    }
+  }
+}
+
+#wrapper{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+main  {
+  padding-top: 6.5rem;
+}
+
+#bio {
+  padding-bottom: 1.5em;
+}
+
+.sidebar {
+  position: fixed;
+  max-width: 33.33333%;
+  padding-right: 2.5rem;
+}
+
+.navigation {
+  margin-top: 2em;
+}
+
+.content {
+  left: 33.33333%;
+
+  & .navigation {
+    display: none;
+  }
+}
+
+#interactive-sketch {
+  margin-bottom: 0;
+}
+
+.small {
+	font-size: 80%;
+	margin-bottom: 0;
+}
+
+.light {
+  color: rgba(34, 34, 34, 0.6);
+  font-family: inherit;
+}
+
+footer {
+	margin-top: 2em;
+}
+
+
+/* Hover effects for project blocks */
+
+.project-preview {
+  @include filter (grayscale, 100%);
+  @include transition(250ms);
+
+  &:hover {
+    @include filter (grayscale, 0%);
+    transform: rotate(-2deg);
+  }
+}
+
+
+/*
+ * keyframes for "Live easy."
+ */
+
+ @include keyframes(floating-text) {
+  0% {
+    transform: translateY(.15em);
+    text-shadow:0 0 .1em rgba(255,255,255,.6),
+      0 0 .1em rgba(0,0,0,.1),
+      0 .1em .2em rgba(0,0,0,.2);
+
+  }
+  100% {
+    text-shadow:0 0 .4em rgba(255,255,255,.1),
+      0 0 .3em rgba(0,0,0,.1),
+      0 .3em .5em rgba(0,0,0,.1);
+  }
+}
+
+.floating {
+  font-family: 'Metropolis', sans-serif;
+  font-weight: 700;
+ 	font-size: 12vw;
+ 	letter-spacing: -.025em;
+ 	color: #369AFF;
+  padding-top: 1.5em;
+ 	padding-bottom: 1.2em;
+ 	margin-bottom: 0;
+ 	@include animation('floating-text 4s ease-in-out alternate infinite');
+}
+
+
+/*
+ * Keyframes for text reveal animation
+ */
+
+ @include keyframes(reveal) {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(2rem);
+       -moz-transform: translateY(2rem);
+         -o-transform: translateY(2rem);
+            transform: translateY(2rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+       -moz-transform: translateY(0);
+         -o-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+.slide-in {
+  opacity: 0;
+  @include animation('reveal 250ms cubic-bezier(0.2, 0, 0.6, 1) 1 normal forwards');
+}
+
+.animate-first {
+  -webkit-animation-delay: 0;
+     -moz-animation-delay: 0;
+       -o-animation-delay: 0;
+          animation-delay: 0;
+}
+
+.animate-second {
+  -webkit-animation-delay: 250ms;
+     -moz-animation-delay: 250ms;
+       -o-animation-delay: 250ms;
+          animation-delay: 250ms;
+}
+
+.animate-third {
+  -webkit-animation-delay: 500ms;
+     -moz-animation-delay: 500ms;
+       -o-animation-delay: 500ms;
+          animation-delay: 500ms;
+}
+
+
+/* Processing self-portrait */
+
+.react-p5 {
+  position: fixed;
+  left: 1rem;
+  top: 6rem;
+  width: 25%;
+  margin: 0 auto;
+}
+
+#self-portrait {
+  width: 100% !important;
+  height: auto !important;
+}
+
+
+
+/*
+ * Media Queries
+ */
+
+
+@media (max-width: 1200px) {
+
+  html, body {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  #self-portrait {
+    margin-left: 0;
+  }
+
+}
+
+@media (max-width:992px) {
+
+	html, body {
+		font-size: 20px;
+  }
+
+}
+
+@media (max-width:768px) {
+
+  #self-portrait {
+    opacity: .75;
+  }
+
+  .sidebar {
+    position: relative;
+    max-width: 100%;
+    padding-right: 0;
+    margin-bottom: 1em;
+
+    & .navigation {
+      display: none;
+    }
+  }
+
+  .content {
+    left: 0;
+
+    & .navigation {
+      display: initial;
+
+      & a {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .react-p5 {
+    position: absolute;
+    width: 25%;
+    top: 20vh;
+    right: 1.25rem;
+    left: initial;
+    bottom: initial;
+  }
+
+}

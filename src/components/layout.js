@@ -1,46 +1,40 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
+import logo from "../data/images/logo.svg"
 
-import Header from "./header"
-import "./layout.css"
+import Container from "react-bootstrap/Container"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
+    <div id="wrapper">
+      <Container fluid>
+        <Row>
+          <Col xs={12} id="logo">
+            <Link to="/">
+              <img src={logo} alt="Nate Tlaseca's logo"/>
+            </Link>
+          </Col>
+        </Row>
+        <main>
+          <Row>
+            {children}
+          </Row>
+        </main>
         <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          <Row className="justify-content-between">
+            <Col xs={3}>
+              © {new Date().getFullYear()}
+            </Col>
+            <Col xs={9} className="text-right">
+              <a href="mailto:nate.tlaseca@gmail.com?subject=Hey,%20Nate!" target="_blank" rel="noopener noreferrer">Email me!</a>
+            </Col>
+          </Row>
         </footer>
-      </div>
-    </>
+      </Container>
+    </div>
   )
 }
 

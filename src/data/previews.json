@@ -1,0 +1,32 @@
+[
+  {
+    "image": "./images/panels/panel_diamond-challenge.png",
+    "alt": "Diamond Challenge",
+    "slug": "diamond"    
+  },
+  {
+    "image": "./images/panels/panel_horn.png",
+    "alt": "Horn Entrepreneurship",
+    "slug": "horn"
+  },
+  {
+    "image": "./images/panels/panel_tenantu.png",
+    "alt": "TenantU",
+    "slug": "tenantu"
+  },
+  {
+    "image": "./images/panels/panel_hub.png",
+    "alt": "Hub",
+    "slug": "hub"
+  },
+  {
+    "image": "./images/panels/panel_logos.png",
+    "alt": "Logos & Marks",
+    "slug": "logos"
+  },
+  {
+    "image": "./images/panels/panel_misc.png",
+    "alt": "Odds & Ends",
+    "slug": "misc"
+  }
+]
