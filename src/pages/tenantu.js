@@ -117,9 +117,7 @@ const TenantU = ({ data }) => {
               alt="Mockup of the TenantU login screen, scaled to a mobile size"
             />
           </Col>
-          <Col xs={12}>
-            <h1 class="floating text-center">Live easy.</h1>
-          </Col>
+          <LiveEasy />
           <Col xs={12} className="navigation slide-in animate-second">
             <Row>
               <Col xs={6}>

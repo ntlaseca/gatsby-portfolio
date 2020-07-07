@@ -1,19 +1,13 @@
-body{
-  width:100%;
-  height:100%;
-}
-
 .panel {
-  width: 28vw;
-  height: 20vw;
-  position: relative;
+  width: 42.5vmax;
+  height: 27.5vmax;
   display: block;
-  margin: 10% auto;
+  margin: 0 auto;
   perspective: 64em;
   transform: rotate(-3deg);
 }
 
-.front-image,.back-image{
+.front-image, .back-image{
   display: block;
   width: 100%;
   height: auto;
@@ -27,7 +21,6 @@ body{
   z-index: 2;
   width: 100%;
   height: auto;
-  text-align: center;
   display: block;
   transform: rotateX(0deg) rotateY(0deg);
   transform-style: preserve-3d;
@@ -45,8 +38,7 @@ body{
   position: absolute;
   z-index: 1;
   width: 100%;
-  height: 100%;
-  margin: auto;
+  height: auto;
   transform: rotateY(-180deg);
   transform-style: preserve-3d;
   backface-visibility: hidden;

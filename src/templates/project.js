@@ -9,8 +9,6 @@ import Navigation from "../components/sidebar/navigation"
 import Main from "../components/main"
 import SEO from "../components/seo"
 
-import "../styles/css/rotating-card.css"
-
 export const query = graphql`
   query($slug: String!, $relativeDirectory: String!) {
     projectsJson(slug: { eq: $slug }) {
