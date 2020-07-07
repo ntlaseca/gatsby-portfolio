@@ -8,6 +8,8 @@ import Sidebar from "../components/sidebar/sidebar"
 import Main from "../components/main"
 import SEO from "../components/seo"
 
+import LiveEasy from "../components/live-easy/live-easy"
+
 export const dataQuery = graphql`
   query {
     projectsJson(slug: { eq: "tenantu" }) {
