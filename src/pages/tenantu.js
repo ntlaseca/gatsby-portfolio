@@ -44,6 +44,7 @@ export const fluidImage = graphql`
         traceSVG: {
           color: "rgb(106,98,250)"
         }
+        srcSetBreakpoints: [360, 720, 1080, 1440]
       ) {
         ...GatsbyImageSharpFluid_withWebp_tracedSVG
       }

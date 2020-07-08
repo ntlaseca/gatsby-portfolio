@@ -19,7 +19,6 @@ export const query = graphql`
     }
     allFile(
       filter: {
-        extension: { regex: "/(jpg)|(jpeg)|(png)|(gif)/" }
         relativeDirectory: { eq: $relativeDirectory }
       }
       sort: {
@@ -38,9 +37,10 @@ export const query = graphql`
               traceSVG: {
                 color: "rgb(106,98,250)"
               }
+              srcSetBreakpoints: [360, 720, 1080, 1440]
             ) {
               aspectRatio
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              ...GatsbyImageSharpFluid_tracedSVG
             }
           }
           publicURL

@@ -14,7 +14,7 @@ const ProjectList = () => {
             image {
               childImageSharp {
                 fluid(
-                  maxWidth: 1440
+                  maxWidth: 960
                   quality: 100
                   traceSVG: {
                     color: "rgb(106,98,250)"
