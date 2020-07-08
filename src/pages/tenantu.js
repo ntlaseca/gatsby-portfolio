@@ -73,12 +73,12 @@ const TenantU = ({ data }) => {
           <Col xs={12} className="navigation slide-in animate-second">
             <Row>
               <Col xs={6}>
-                <Link to="/horn">
-                  Previous
+                <Link to="/horn/">
+                  Prev
                 </Link>
               </Col>
               <Col xs={6} className="text-right">
-                <Link to="/hub">
+                <Link to="/hub/">
                   Next
                 </Link>
               </Col>
@@ -123,12 +123,12 @@ const TenantU = ({ data }) => {
           <Col xs={12} className="navigation slide-in animate-second">
             <Row>
               <Col xs={6}>
-                <Link to="/horn">
-                  Previous
+                <Link to="/horn/">
+                  Prev
                 </Link>
               </Col>
               <Col xs={6} className="text-right">
-                <Link to="/hub">
+                <Link to="/hub/">
                   Next
                 </Link>
               </Col>

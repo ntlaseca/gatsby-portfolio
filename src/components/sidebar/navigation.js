@@ -9,14 +9,14 @@ export const Navigation = ({ next, prev }) => {
       <Row>
         <Col xs={6}>
           {prev &&
-            <Link to={prev.slug}>
-              Previous
+            <Link to={`/${prev.slug}/`}>
+              Prev
             </Link>
           }
         </Col>
         <Col xs={6} className="text-right">
           {next &&
-            <Link to={next.slug}>
+            <Link to={`/${next.slug}/`}>
               Next
             </Link>
           }
