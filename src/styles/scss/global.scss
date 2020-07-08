@@ -37,7 +37,8 @@ $sans-stack: 'Inter', sans-serif;
   font-family: 'Inter';
   font-style: normal;
   src: url('../fonts/inter[slnt,wght].woff2') format('woff2'),
-       url('../fonts/inter[slnt,wght].ttf') format('truetype-variations'),
+       url('../fonts/inter[slnt,wght].ttf') format('truetype-variations');
+  font-display: swap;
 }
 
 @font-face {
@@ -45,7 +46,8 @@ $sans-stack: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
   src: url('../fonts/NimbusRomNo9L-Reg.woff2') format('woff2'),
-       url('../fonts/NimbusRomNo9L-Reg.otf') format('opentype-variations'),
+       url('../fonts/NimbusRomNo9L-Reg.otf') format('opentype-variations');
+  font-display: swap;
 }
 
 body {

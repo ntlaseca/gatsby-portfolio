@@ -2,8 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Nate Tlaseca`,
     description: `Nate Tlaseca is a human and multidisciplinary designer from Delaware.`,
-    author: `Nate Tlaseca`,
-    url: `http://www.natetlaseca.com`
+    author: `Nate Tlaseca`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -21,14 +20,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Nate Tlaseca - Portfolio`,
+        short_name: `Nate Tlaseca`,
         start_url: `/`,
-        icon: `src/data/images/logo512.png`, // This path is relative to the root of the site.
+        icon: `src/data/images/logo512.png`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }

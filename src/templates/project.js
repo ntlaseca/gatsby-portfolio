@@ -40,7 +40,7 @@ export const query = graphql`
               }
             ) {
               aspectRatio
-              ...GatsbyImageSharpFluid_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }
           publicURL

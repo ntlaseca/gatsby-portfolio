@@ -45,7 +45,7 @@ export const fluidImage = graphql`
           color: "rgb(106,98,250)"
         }
       ) {
-        ...GatsbyImageSharpFluid_tracedSVG
+        ...GatsbyImageSharpFluid_withWebp_tracedSVG
       }
     }
     publicURL
@@ -67,7 +67,7 @@ const TenantU = ({ data }) => {
       <Sidebar>
         <Row>
           <Col xs={12}>
-            <h1 className="slide-in animate-first">{header}</h1>
+            <h2 className="slide-in animate-first">{header}</h2>
             <p className="slide-in animate-second">{description}</p>
           </Col>
           <Col xs={12} className="navigation slide-in animate-second">

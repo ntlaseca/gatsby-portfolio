@@ -20,7 +20,7 @@ const ProjectList = () => {
                     color: "rgb(106,98,250)"
                   }
                 ) {
-                  ...GatsbyImageSharpFluid_tracedSVG
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }
             }
