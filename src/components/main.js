@@ -4,9 +4,9 @@ import Col from "react-bootstrap/Col"
 
 const Main = ({ children }) => {
   return (
-    <Col md={8} className="content">
+    <div className="content">
       {children}
-    </Col>
+    </div>
   )
 }
 

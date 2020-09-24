@@ -1,14 +1,13 @@
 import React from "react"
-import Col from "react-bootstrap/Col"
 import Img from "gatsby-image"
 
 const Images = ({ imageRatio, imageKey, imageData, imageAlt }) => {
   return (
-    <Col
-      xs={
-        imageRatio === 1 ? 6
-        : imageRatio <= .6 ? 12
-        : 12
+    <div
+      className={
+        imageRatio === 1 ? "col-6"
+        : imageRatio <= .6 ? "col-12"
+        : "col-12"
       }
       sm={
         imageRatio === 1 ? 6
@@ -28,7 +27,7 @@ const Images = ({ imageRatio, imageKey, imageData, imageAlt }) => {
             className="img-fluid"
           />
       }
-    </Col>
+    </div>
   )
 }
 

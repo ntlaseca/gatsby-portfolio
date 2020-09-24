@@ -1,28 +1,24 @@
 import React from "react"
 import { Link } from "gatsby"
-import Row from "react-bootstrap/Row"
-import Col from "react-bootstrap/Col"
 
 export const Navigation = ({ next, prev }) => {
   return (
-    <Col xs={12} className="navigation slide-in animate-second">
-      <Row>
-        <Col xs={6}>
-          {prev &&
-            <Link to={`/${prev.slug}/`}>
-              Prev
-            </Link>
-          }
-        </Col>
-        <Col xs={6} className="text-right">
-          {next &&
-            <Link to={`/${next.slug}/`}>
-              Next
-            </Link>
-          }
-        </Col>
-      </Row>
-    </Col>
+    <div className="navigation slide-in animate-second d-flex">
+      <span className="mr-auto">
+        {prev &&
+          <Link to={`/${prev.slug}/`}>
+            Prev
+          </Link>
+        }
+      </span>
+      <span className="text-right">
+        {next &&
+          <Link to={`/${next.slug}/`}>
+            Next
+          </Link>
+        }
+      </span>
+    </div>
   )
 }
 

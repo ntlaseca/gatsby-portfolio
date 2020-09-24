@@ -2,7 +2,6 @@ import React from "react"
 import { graphql } from "gatsby"
 import Images from "../components/images"
 import Row from "react-bootstrap/Row"
-import Col from "react-bootstrap/Col"
 import Layout from "../components/layout"
 import Sidebar from "../components/sidebar/sidebar"
 import Navigation from "../components/sidebar/navigation"
@@ -66,19 +65,17 @@ const ProjectTemplate = ({ data, pageContext }) => {
         description={meta}
       />
       <Sidebar>
-        <Row>
-          <Col xs={12}>
-            <h2 className="slide-in animate-first">{header}</h2>
-            <p className="slide-in animate-second">{description}</p>
-          </Col>
-          <Navigation
-            next={next}
-            prev={prev}
-          />
-        </Row> 
+        <div>
+          <h2 className="slide-in animate-first">{header}</h2>
+          <p className="slide-in animate-second">{description}</p>
+        </div>
+        <Navigation
+          next={next}
+          prev={prev}
+        />
       </Sidebar>
       <Main>
-        <Row className="slide-in animate-third">
+        <div className="slide-in animate-third d-grid col-12">
           {images.map(image => {
             const isFluid = !!image.node.childImageSharp
 
@@ -101,7 +98,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
             next={next}
             prev={prev}
           />
-        </Row>
+        </div>
       </Main>
     </Layout>
   )
