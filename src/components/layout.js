@@ -3,9 +3,6 @@ import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import logo from "../data/images/logo.svg"
 
-import Row from "react-bootstrap/Row"
-import Col from "react-bootstrap/Col"
-
 const Layout = ({ children }) => {
   return (
     <div id="wrapper">

@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 export const Navigation = ({ next, prev }) => {
   return (
-    <div className="navigation slide-in animate-second d-flex">
+    <div className="navigation slide-in animate-second d-flex justify-content-between">
       <span className="mr-auto">
         {prev &&
           <Link to={`/${prev.slug}/`}>

@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Images from "../components/images"
-import Row from "react-bootstrap/Row"
 import Layout from "../components/layout"
 import Sidebar from "../components/sidebar/sidebar"
 import Navigation from "../components/sidebar/navigation"

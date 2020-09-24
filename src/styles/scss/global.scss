@@ -2,6 +2,54 @@
 @import "../../styles/scss/animations.scss";
 
 /*
+ * Reset
+ */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*
  * Universal Styles
  */
 
@@ -181,6 +229,10 @@ canvas {
   grid-gap: 1em;
 }
 
+.col-4 {
+  grid-column: span 4;
+}
+
 .col-6 {
   grid-column: span 6;
 }
@@ -224,7 +276,7 @@ main  {
 
 .sidebar {
   position: fixed;
-  max-width: 33.33333%;
+  max-width: calc(33.33333% - 3em);
   padding-right: 2.5rem;
 
   & > div {
@@ -261,7 +313,7 @@ main  {
 }
 
 footer {
-	margin-top: 2em;
+	margin-top: 4em;
 }
 
 
@@ -270,6 +322,7 @@ footer {
 .project-preview {
   @include filter (grayscale, 100%);
   @include transition(250ms);
+  grid-column: span 4;
 
   &:hover {
     @include filter (grayscale, 0%);
@@ -282,8 +335,6 @@ footer {
 
 .react-p5 {
   position: fixed;
-  left: 1rem;
-  top: 6rem;
   width: 25%;
   margin: 0 auto;
 }
@@ -318,6 +369,10 @@ footer {
     margin-left: 0;
   }
 
+  .project-preview {
+    grid-column: span 6;
+  }
+
 }
 
 @media (max-width:992px) {
@@ -331,7 +386,7 @@ footer {
 @media (max-width:768px) {
 
   #self-portrait {
-    opacity: .75;
+    opacity: .5;
   }
 
   .sidebar {
@@ -350,7 +405,7 @@ footer {
     grid-column: span 12;
 
     & .navigation {
-      display: initial;
+      display: flex;
 
       & a {
         font-size: 1.5rem;
