@@ -1,17 +1,53 @@
-// Required
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-
-// Optional
-@import "~bootstrap/scss/utilities";
-@import "~bootstrap/scss/reboot";
-@import "~bootstrap/scss/images";
-@import "~bootstrap/scss/code";
-@import "~bootstrap/scss/grid";
-
 // Custom
 @import "../../styles/scss/animations.scss";
+
+/*
+ * Reset
+ */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 
 /*
  * Universal Styles
@@ -124,7 +160,8 @@ a {
 	word-break: break-word;
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
-	-ms-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
 
 	&:hover {
     color: $brand-color;
@@ -161,21 +198,52 @@ canvas {
  * Bootstrap Changes
  */
 
-.container, .container-fluid {
-  padding-right: 1rem;
-  padding-left: 1rem;
-}
-
-.row {
-  margin: -.5rem;
-}
-
-[class*="col-"] {
-  padding: .5rem;
-}
-
 .img-fluid {
   width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+.d-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+/*
+ * CSS Grid setup
+ */ 
+
+.d-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 1em;
+}
+
+.col-4 {
+  grid-column: span 4;
+}
+
+.col-6 {
+  grid-column: span 6;
+}
+
+.col-12 {
+  grid-column: span 12;
 }
 
 
@@ -184,6 +252,7 @@ canvas {
  */
 
 #logo {
+  grid-column: span 12;
   position: fixed;
   z-index: 2;
 
@@ -199,8 +268,7 @@ canvas {
 }
 
 #wrapper{
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding: 1rem;
 }
 
 main  {
@@ -213,8 +281,12 @@ main  {
 
 .sidebar {
   position: fixed;
-  max-width: 33.33333%;
+  max-width: calc(33.33333% - 3em);
   padding-right: 2.5rem;
+
+  & > div {
+    grid-column: span 12;
+  }
 }
 
 .navigation {
@@ -222,9 +294,11 @@ main  {
 }
 
 .content {
-  left: 33.33333%;
+  grid-column-start: 5;
+  grid-column-end: 13;
 
   & .navigation {
+    grid-column: span 12;
     display: none;
   }
 }
@@ -244,7 +318,7 @@ main  {
 }
 
 footer {
-	margin-top: 2em;
+	margin-top: 4em;
 }
 
 
@@ -253,6 +327,7 @@ footer {
 .project-preview {
   @include filter (grayscale, 100%);
   @include transition(250ms);
+  grid-column: span 4;
 
   &:hover {
     @include filter (grayscale, 0%);
@@ -265,8 +340,6 @@ footer {
 
 .react-p5 {
   position: fixed;
-  left: 1rem;
-  top: 6rem;
   width: 25%;
   margin: 0 auto;
 }
@@ -301,6 +374,10 @@ footer {
     margin-left: 0;
   }
 
+  .project-preview {
+    grid-column: span 6;
+  }
+
 }
 
 @media (max-width:992px) {
@@ -314,10 +391,11 @@ footer {
 @media (max-width:768px) {
 
   #self-portrait {
-    opacity: .75;
+    opacity: .5;
   }
 
   .sidebar {
+    grid-column: span 12;
     position: relative;
     max-width: 100%;
     padding-right: 0;
@@ -329,10 +407,10 @@ footer {
   }
 
   .content {
-    left: 0;
+    grid-column: span 12;
 
     & .navigation {
-      display: initial;
+      display: flex;
 
       & a {
         font-size: 1.5rem;

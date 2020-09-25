@@ -1,6 +1,5 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Row from "react-bootstrap/Row"
 import ProjectPreview from "./project-preview"
 
 const ProjectList = () => {
@@ -33,7 +32,7 @@ const ProjectList = () => {
   const previews = data.allPreviewsJson.edges
 
   return (
-    <Row className="slide-in animate-third">
+    <div className="slide-in animate-third d-grid">
       {previews.map(({ node: preview }) => {
         const alt = preview.alt
         const slug = preview.slug
@@ -47,7 +46,7 @@ const ProjectList = () => {
           />
         )
       })}
-    </Row>
+    </div>
   )
 }
 

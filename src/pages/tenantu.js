@@ -1,8 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
-import Row from "react-bootstrap/Row"
-import Col from "react-bootstrap/Col"
 import Layout from "../components/layout"
 import Sidebar from "../components/sidebar/sidebar"
 import Main from "../components/main"
@@ -66,76 +64,68 @@ const TenantU = ({ data }) => {
         description={meta}
       />
       <Sidebar>
-        <Row>
-          <Col xs={12}>
-            <h2 className="slide-in animate-first">{header}</h2>
-            <p className="slide-in animate-second">{description}</p>
-          </Col>
-          <Col xs={12} className="navigation slide-in animate-second">
-            <Row>
-              <Col xs={6}>
-                <Link to="/horn/">
-                  Prev
-                </Link>
-              </Col>
-              <Col xs={6} className="text-right">
-                <Link to="/hub/">
-                  Next
-                </Link>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
+        <div>
+          <h2 className="slide-in animate-first">{header}</h2>
+          <p className="slide-in animate-second">{description}</p>
+        </div>
+        <div className="navigation slide-in animate-second d-flex justify-content-between">
+          <span>
+            <Link to="/horn/">
+              Prev
+            </Link>
+          </span>
+          <span className="text-right">
+            <Link to="/hub/">
+              Next
+            </Link>
+          </span>
+        </div>
       </Sidebar>
       <Main>
-        <Row>
-          <Col xs={12}>
-            <Img
-              fluid={data.image1.childImageSharp.fluid}
-              alt="Landing page mockup for the TenantU website"
-            />
-          </Col>
-          <Col xs={12}>
-            <Img
-              fluid={data.image2.childImageSharp.fluid}
-              alt="TenantU house illustrations"
-            />
-          </Col>
-          <Col xs={12}>
-            <img
-              className="img-fluid"
-              src={data.image3.publicURL}
-              alt="Details of the TenantU house illustrations"
-            />
-          </Col>
-          <Col xs={12}>
-            <Img
-              fluid={data.image4.childImageSharp.fluid}
-              alt="Icons for the TenantU UI"
-            />
-          </Col>
-          <Col xs={12}>
-            <Img
-              fluid={data.image5.childImageSharp.fluid}
-              alt="Mockup of the TenantU login screen, scaled to a mobile size"
-            />
-          </Col>
-          <LiveEasy />
-          <Col xs={12} className="navigation slide-in animate-second">
-            <Row>
-              <Col xs={6}>
-                <Link to="/horn/">
-                  Prev
-                </Link>
-              </Col>
-              <Col xs={6} className="text-right">
-                <Link to="/hub/">
-                  Next
-                </Link>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
+        <div className="col-12">
+          <Img
+            fluid={data.image1.childImageSharp.fluid}
+            alt="Landing page mockup for the TenantU website"
+          />
+        </div>
+        <div className="col-12">
+          <Img
+            fluid={data.image2.childImageSharp.fluid}
+            alt="TenantU house illustrations"
+          />
+        </div>
+        <div className="col-12">
+          <img
+            className="img-fluid"
+            src={data.image3.publicURL}
+            alt="Details of the TenantU house illustrations"
+          />
+        </div>
+        <div className="col-12">
+          <Img
+            fluid={data.image4.childImageSharp.fluid}
+            alt="Icons for the TenantU UI"
+          />
+        </div>
+        <div className="col-12">
+          <Img
+            fluid={data.image5.childImageSharp.fluid}
+            alt="Mockup of the TenantU login screen, scaled to a mobile size"
+          />
+        </div>
+        <LiveEasy />
+        <div className="navigation slide-in animate-third d-flex justify-content-between">
+          <span>
+            <Link to="/horn/">
+              Prev
+            </Link>
+          </span>
+          <span className="text-right">
+            <Link to="/hub/">
+              Next
+            </Link>
+          </span>
+        </div>
       </Main>
     </Layout>
   )
