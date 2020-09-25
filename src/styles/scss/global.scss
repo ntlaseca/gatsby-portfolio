@@ -160,7 +160,8 @@ a {
 	word-break: break-word;
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
-	-ms-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
 
 	&:hover {
     color: $brand-color;
