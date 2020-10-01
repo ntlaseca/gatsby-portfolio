@@ -82,49 +82,51 @@ const TenantU = ({ data }) => {
         </div>
       </Sidebar>
       <Main>
-        <div className="col-12">
-          <Img
-            fluid={data.image1.childImageSharp.fluid}
-            alt="Landing page mockup for the TenantU website"
-          />
-        </div>
-        <div className="col-12">
-          <Img
-            fluid={data.image2.childImageSharp.fluid}
-            alt="TenantU house illustrations"
-          />
-        </div>
-        <div className="col-12">
-          <img
-            className="img-fluid"
-            src={data.image3.publicURL}
-            alt="Details of the TenantU house illustrations"
-          />
-        </div>
-        <div className="col-12">
-          <Img
-            fluid={data.image4.childImageSharp.fluid}
-            alt="Icons for the TenantU UI"
-          />
-        </div>
-        <div className="col-12">
-          <Img
-            fluid={data.image5.childImageSharp.fluid}
-            alt="Mockup of the TenantU login screen, scaled to a mobile size"
-          />
-        </div>
-        <LiveEasy />
-        <div className="navigation slide-in animate-third d-flex justify-content-between">
-          <span>
-            <Link to="/horn/">
-              Prev
-            </Link>
-          </span>
-          <span className="text-right">
-            <Link to="/hub/">
-              Next
-            </Link>
-          </span>
+        <div className="slide-in animate-third d-grid col-12">
+          <div className="col-12">
+            <Img
+              fluid={data.image1.childImageSharp.fluid}
+              alt="Landing page mockup for the TenantU website"
+            />
+          </div>
+          <div className="col-12">
+            <Img
+              fluid={data.image2.childImageSharp.fluid}
+              alt="TenantU house illustrations"
+            />
+          </div>
+          <div className="col-12">
+            <img
+              className="img-fluid"
+              src={data.image3.publicURL}
+              alt="Details of the TenantU house illustrations"
+            />
+          </div>
+          <div className="col-12">
+            <Img
+              fluid={data.image4.childImageSharp.fluid}
+              alt="Icons for the TenantU UI"
+            />
+          </div>
+          <div className="col-12">
+            <Img
+              fluid={data.image5.childImageSharp.fluid}
+              alt="Mockup of the TenantU login screen, scaled to a mobile size"
+            />
+          </div>
+          <LiveEasy />
+          <div className="navigation slide-in animate-third d-flex justify-content-between">
+            <span>
+              <Link to="/horn/">
+                Prev
+              </Link>
+            </span>
+            <span className="text-right">
+              <Link to="/hub/">
+                Next
+              </Link>
+            </span>
+          </div>
         </div>
       </Main>
     </Layout>
