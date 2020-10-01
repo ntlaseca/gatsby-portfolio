@@ -47,7 +47,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   })
 }
 
-const pathsToIgnore = ['/tenantu']
+const pathsToIgnore = ['/tenantu', '/horn']
 
 exports.onCreatePage = ({ page, actions }) => {
   if (pathsToIgnore.includes(page.path)) {
