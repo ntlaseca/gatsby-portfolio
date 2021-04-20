@@ -1,8 +1,8 @@
+const siteConfig = require('./site-config');
+
 module.exports = {
   siteMetadata: {
-    title: `Nate Tlaseca`,
-    description: `Nate Tlaseca is a human and multidisciplinary designer from Delaware.`,
-    author: `Nate Tlaseca`
+    ...siteConfig
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -13,9 +13,12 @@ module.exports = {
         path: `${__dirname}/src/data`,
       },
     },
+    `gatsby-plugin-image`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-styled-components`,
     `gatsby-transformer-json`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sass`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
