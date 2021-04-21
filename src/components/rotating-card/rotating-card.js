@@ -1,5 +1,4 @@
 import React from "react"
-import "./rotating-card.scss"
 import front from "./HE_Graduation-Party_Invitation_front.png"
 import back from "./HE_Graduation-Party_Invitation_back.png"
 
