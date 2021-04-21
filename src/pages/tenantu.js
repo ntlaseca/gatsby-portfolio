@@ -1,12 +1,11 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
-import Layout from "../components/layout"
-import Sidebar from "../components/sidebar/sidebar"
-import Main from "../components/main"
-import SEO from "../components/seo"
+import Layout from "components/layout"
+import Sidebar from "components/sidebar/sidebar"
+import Main from "components/main"
 
-import LiveEasy from "../components/live-easy/live-easy"
+import LiveEasy from "components/live-easy/live-easy"
 
 export const dataQuery = graphql`
   query {
@@ -59,10 +58,6 @@ const TenantU = ({ data }) => {
   
   return (
     <Layout>
-      <SEO
-        title={header}
-        description={meta}
-      />
       <Sidebar>
         <div>
           <h2 className="slide-in animate-first">{header}</h2>

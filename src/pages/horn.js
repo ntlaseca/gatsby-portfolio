@@ -1,10 +1,9 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
-import Layout from "../components/layout"
-import Sidebar from "../components/sidebar/sidebar"
-import Main from "../components/main"
-import SEO from "../components/seo"
+import Layout from "components/layout"
+import Sidebar from "components/sidebar/sidebar"
+import Main from "components/main"
 
 import RotatingCard from "../components/rotating-card/rotating-card"
 
@@ -50,10 +49,6 @@ const Horn = ({ data }) => {
   
   return (
     <Layout>
-      <SEO
-        title={header}
-        description={meta}
-      />
       <Sidebar>
         <div>
           <h2 className="slide-in animate-first">{header}</h2>
