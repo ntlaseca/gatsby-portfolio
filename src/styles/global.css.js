@@ -96,7 +96,7 @@ export default createGlobalStyle`
 
     &:focus-visible {
       color: ${accent};
-      outline: 2px solid ${accent};
+      outline: 4px solid ${accent};
       outline-offset: .8rem;
       text-decoration: none;
     }
@@ -135,18 +135,6 @@ export default createGlobalStyle`
     font-variation-settings: 'wght' 700;
   }
 
-  /*
-  * Universal Styles
-  */
-
-  @mixin filter($type,$amount) {
-  -webkit-filter: unquote($type+unquote('(#{$amount})'));
-    -moz-filter: unquote($type+unquote('(#{$amount})'));
-      -ms-filter: unquote($type+unquote('(#{$amount})'));
-      -o-filter: unquote($type+unquote('(#{$amount})'));
-          filter: unquote($type+unquote('(#{$amount})'));
-  }
-
   h1, h2, h3, h4, h5, h6 {
     font-family: serif;
     font-weight: 400;
@@ -158,17 +146,6 @@ export default createGlobalStyle`
     hyphens: auto;
     margin-top: 0;
     letter-spacing: -.02em;
-  }
-
-  h1 {
-    font-size: 4.5vmax;
-    line-height: 1.2em;
-    margin-bottom: 1em;
-
-    & a:hover {
-      color: rgba(0,0,0,0);
-      -webkit-text-stroke: .02em ${accent};
-    }
   }
 
   h2 {
@@ -199,17 +176,6 @@ export default createGlobalStyle`
     -webkit-tap-highlight-color: rgba(255,255,255,0); /* mobile webkit */
   }
 
-  /*
-  * CSS Grid setup
-  */ 
-
-  .d-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: auto;
-    grid-gap: 1em;
-  }
-
   .col-4 {
     grid-column: span 4;
   }
@@ -220,15 +186,6 @@ export default createGlobalStyle`
 
   .col-12 {
     grid-column: span 12;
-  }
-
-
-  /*
-  * Layout Styles
-  */
-
-  main  {
-    padding-top: 6.5rem;
   }
 
   #bio {
@@ -273,8 +230,6 @@ export default createGlobalStyle`
     font-family: inherit;
   }
 
-  /* Hover effects for project blocks */
-
   .project-preview {
     @include filter (grayscale, 100%);
     @include transition(250ms);
@@ -286,9 +241,6 @@ export default createGlobalStyle`
     }
   }
 
-
-  /* Processing self-portrait */
-
   .react-p5 {
     position: fixed;
     width: 25%;
@@ -299,12 +251,6 @@ export default createGlobalStyle`
     width: 100% !important;
     height: auto !important;
   }
-
-
-
-  /*
-  * Media Queries
-  */
 
 
   @media (max-width: 1200px) {
