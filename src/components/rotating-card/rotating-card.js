@@ -4,7 +4,7 @@ import back from "./HE_Graduation-Party_Invitation_back.png"
 
 const RotatingCard = () => {
   return (
-    <div class="col-12">
+    <div className="col-12">
 			<div className="panel">
 				<div className="front">
 					<img src={front} className="front-image" alt="2019 graduation postcard front" />
