@@ -1,11 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { Wrapper } from "./sidebar.css"
 
 const Sidebar = ({ children }) => {
   return (
-    <div className="sidebar">
+    <Wrapper>
       {children}
-    </div>
+    </Wrapper>
   )
 }
 
