@@ -1,21 +1,21 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Helmet from "react-helmet";
-import { StaticQuery, graphql } from "gatsby";
+import React from "react"
+import PropTypes from "prop-types"
+import Helmet from "react-helmet"
+import { StaticQuery, graphql } from "gatsby"
 
 const detailsQuery = graphql`
   query {
     site {
       siteMetadata {
-        siteTitle
-        siteDescription
         siteAuthor
+        siteDescription
+        siteTitle
       }
     }
   }
-`;
+`
 
-function Head ({ description, lang, title }) {
+function Head({ siteDescription, lang, meta, siteTitle }) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -23,67 +23,73 @@ function Head ({ description, lang, title }) {
         if (!data.site) {
           return
         }
-        const metaDescription = description || data.site.siteDescription
+        const metaDescription =
+          siteDescription || data.site.siteMetadata.siteDescription
         return (
           <Helmet
             htmlAttributes={{
-              lang
+              lang,
             }}
-            title={title}
-            titleTemplate={title === data.site.siteTitle ? '%s' : `%s | ${data.site.siteTitle}`}
+            title={siteTitle}
+            titleTemplate={
+              siteTitle === data.site.siteMetadata.siteTitle
+                ? "%s"
+                : `%s | ${data.site.siteMetadata.siteTitle}`
+            }
             meta={[
               {
-                name: 'description',
-                content: metaDescription
+                name: "description",
+                content: metaDescription,
               },
               {
-                property: 'og:title',
-                content: title
+                property: "og:title",
+                content: siteTitle,
               },
               {
-                property: 'og:description',
-                content: metaDescription
+                property: "og:description",
+                content: metaDescription,
               },
               {
-                property: 'og:type',
-                content: 'website'
+                property: "og:type",
+                content: "website",
               },
               {
-                name: 'twitter:card',
-                content: 'summary'
+                name: "twitter:card",
+                content: "summary",
               },
               {
-                name: 'twitter:creator',
-                content: data.site.siteAuthor
+                name: "twitter:creator",
+                content: data.site.siteMetadata.siteAuthor,
               },
               {
-                name: 'twitter:title',
-                content: title
+                name: "twitter:title",
+                content: siteTitle,
               },
               {
-                name: 'twitter:description',
-                content: metaDescription
-              }
-            ]}
+                name: "twitter:description",
+                content: metaDescription,
+              },
+            ]
+            .concat(meta)}
           />
         )
       }}
     />
   )
 }
-  
+
 Head.defaultProps = {
-  lang: 'en',
+  lang: "en",
   meta: [],
-  keywords: []
+  keywords: [],
 }
 
 Head.propTypes = {
-  description: PropTypes.string,
+  siteTitle: PropTypes.string.isRequired,
+  siteDescription: PropTypes.string.isRequired,
   lang: PropTypes.string,
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired
 }
 
-export default Head  
+export default Head
