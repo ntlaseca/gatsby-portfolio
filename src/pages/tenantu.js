@@ -53,7 +53,6 @@ export const fluidImage = graphql`
 const TenantU = ({ data }) => {
   const project = data.projectsJson
   const header = project.header
-  const meta = project.meta
   const description = project.description
   
   return (

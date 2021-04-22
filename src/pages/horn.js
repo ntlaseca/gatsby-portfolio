@@ -4,8 +4,8 @@ import Img from "gatsby-image"
 import Layout from "components/layout"
 import Sidebar from "components/sidebar/sidebar"
 import Main from "components/main"
-
-import RotatingCard from "../components/rotating-card/rotating-card"
+import Section from "components/section"
+import { Navigation, MobileNavigation } from "components/sidebar/navigation"
 
 export const dataQuery = graphql`
   query {
@@ -44,7 +44,6 @@ export const fluidImage = graphql`
 const Horn = ({ data }) => {
   const project = data.projectsJson
   const header = project.header
-  const meta = project.meta
   const description = project.description
   
   return (
@@ -54,50 +53,16 @@ const Horn = ({ data }) => {
           <h2 className="slide-in animate-first">{header}</h2>
           <p className="slide-in animate-second">{description}</p>
         </div>
-        <div className="navigation slide-in animate-second d-flex justify-content-between">
-          <span>
-            <Link to="/diamond/">
-              Prev
-            </Link>
-          </span>
-          <span className="text-right">
-            <Link to="/tenantu/">
-              Next
-            </Link>
-          </span>
-        </div>
+        <Navigation prev="diamond" next="tenantu" />
       </Sidebar>
       <Main>
-        <div className="slide-in animate-third d-grid col-12">
-          <div className="col-12">
-            <Img
-              fluid={data.image1.childImageSharp.fluid}
-              alt="A flyer, poster, and handbook cover for Horn Entrepreneurship"
-            />
-          </div>
-          <div className="col-12">
-            <img
-              className="img-fluid"
-              src={data.image2.publicURL}
-              alt="A flyer, poster, and handbook cover for Horn Entrepreneurship"
-            />
-          </div>
-          <div className="col-12">
-            <RotatingCard />
-          </div>
-          <div className="navigation slide-in animate-third d-flex justify-content-between">
-            <span>
-              <Link to="/horn/">
-                Prev
-              </Link>
-            </span>
-            <span className="text-right">
-              <Link to="/hub/">
-                Next
-              </Link>
-            </span>
-          </div>
-        </div>
+        <Section span={12}>
+          <Img
+            fluid={data.image1.childImageSharp.fluid}
+            alt="A flyer, poster, and handbook cover for Horn Entrepreneurship"
+          />
+        </Section>
+        <MobileNavigation prev="diamond" next="tenantu" />
       </Main>
     </Layout>
   )
