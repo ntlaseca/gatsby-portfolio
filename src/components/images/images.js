@@ -1,33 +1,29 @@
 import React from "react"
-import Img from "gatsby-image"
+import Section from "components/section"
+import { GatsbyImage } from "gatsby-plugin-image"
+import { Image } from "./images.css"
 
 const Images = ({ imageRatio, imageKey, imageData, imageAlt }) => {
   return (
-    <div
-      className={
-        imageRatio === 1 ? "col-6"
-        : imageRatio <= .6 ? "col-12"
-        : "col-12"
-      }
-      sm={
-        imageRatio === 1 ? 6
-        : imageRatio <= .6 ? 4
-        : 12
+    <Section
+      span={
+        imageRatio === 1 ? "6"
+        : imageRatio <= .6 ? "12"
+        : "12"
       }
     >
       {!!imageKey 
-        ? <Img
+        ? <GatsbyImage
             key={imageKey}
-            fluid={imageData}
+            image={imageData}
             alt={imageAlt}
           />
-        : <img
+        : <Image
             src={imageData}
             alt={imageAlt}
-            className="img-fluid"
           />
       }
-    </div>
+    </Section>
   )
 }
 
