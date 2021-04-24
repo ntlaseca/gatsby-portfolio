@@ -78,11 +78,7 @@ export default createGlobalStyle`
     font-variation-settings: 'wght' 600, 'wdth' 100;
     cursor: url('../cursors/cursor_link_min.svg') 22 22, pointer;
     text-decoration: underline;
-    -ms-word-break: break-word;
     word-break: break-word;
-    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
     hyphens: auto;
 
     &:hover {
@@ -138,11 +134,7 @@ export default createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     font-family: serif;
     font-weight: 400;
-    -ms-word-break: break-word;
     word-break: break-word;
-    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
     hyphens: auto;
     margin-top: 0;
     letter-spacing: -.02em;
@@ -176,50 +168,6 @@ export default createGlobalStyle`
     -webkit-tap-highlight-color: rgba(255,255,255,0); /* mobile webkit */
   }
 
-  .col-4 {
-    grid-column: span 4;
-  }
-
-  .col-6 {
-    grid-column: span 6;
-  }
-
-  .col-12 {
-    grid-column: span 12;
-  }
-
-  #bio {
-    padding-bottom: 1.5em;
-  }
-
-  .sidebar {
-    position: fixed;
-    max-width: calc(33.33333% - 3em);
-    padding-right: 2.5rem;
-
-    & > div {
-      grid-column: span 12;
-    }
-  }
-
-  .navigation {
-    margin-top: 2em;
-  }
-
-  .content {
-    grid-column-start: 5;
-    grid-column-end: 13;
-
-    & .navigation {
-      grid-column: span 12;
-      display: none;
-    }
-  }
-
-  #interactive-sketch {
-    margin-bottom: 0;
-  }
-
   .small {
     font-size: 80%;
     margin-bottom: 0;
@@ -228,17 +176,6 @@ export default createGlobalStyle`
   .light {
     color: rgba(34, 34, 34, 0.6);
     font-family: inherit;
-  }
-
-  .project-preview {
-    @include filter (grayscale, 100%);
-    @include transition(250ms);
-    grid-column: span 4;
-
-    &:hover {
-      @include filter (grayscale, 0%);
-      transform: rotate(-2deg);
-    }
   }
 
   .react-p5 {
@@ -265,38 +202,10 @@ export default createGlobalStyle`
 
   }
 
-  @media (max-width:992px) {
-
-  }
-
   @media (max-width:768px) {
 
     #self-portrait {
       opacity: .5;
-    }
-
-    .sidebar {
-      grid-column: span 12;
-      position: relative;
-      max-width: 100%;
-      padding-right: 0;
-      margin-bottom: 1em;
-
-      & .navigation {
-        display: none;
-      }
-    }
-
-    .content {
-      grid-column: span 12;
-
-      & .navigation {
-        display: flex;
-
-        & a {
-          font-size: 1.5rem;
-        }
-      }
     }
 
     .react-p5 {
