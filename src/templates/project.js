@@ -1,11 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Images from "../components/images"
-import Layout from "../components/layout"
-import Sidebar from "../components/sidebar/sidebar"
-import Navigation from "../components/sidebar/navigation"
-import Main from "../components/main"
-import SEO from "../components/seo"
+import Images from "components/images"
+import Layout from "components/layout"
+import Sidebar from "components/sidebar/sidebar"
+import Navigation from "components/sidebar/navigation"
+import Main from "components/main"
 
 export const query = graphql`
   query($slug: String!, $relativeDirectory: String!) {
@@ -26,22 +25,22 @@ export const query = graphql`
     ) {
       edges {
         node {
+          id
           name
           base
-          childImageSharp {
-            fluid(
-              maxWidth: 1440
-              quality: 100
-              traceSVG: {
-                color: "rgb(106,98,250)"
-              }
-              srcSetBreakpoints: [360, 720, 1080, 1440]
-            ) {
-              aspectRatio
-              ...GatsbyImageSharpFluid_tracedSVG
-            }
-          }
           publicURL
+          childImageSharp {
+            fluid {
+              aspectRatio
+            }
+            gatsbyImageData(
+              width: 1440
+              quality: 100
+              placeholder: TRACED_SVG
+              tracedSVGOptions: { color: "rgb(106,98,250)" }
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
         }
       }
     }
@@ -51,7 +50,6 @@ export const query = graphql`
 const ProjectTemplate = ({ data, pageContext }) => {
   const project = data.projectsJson
   const header = project.header
-  const meta = project.meta
   const description = project.description
   
   const images = data.allFile.edges
@@ -59,10 +57,6 @@ const ProjectTemplate = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <SEO
-        title={header}
-        description={meta}
-      />
       <Sidebar>
         <div>
           <h2 className="slide-in animate-first">{header}</h2>
@@ -74,30 +68,27 @@ const ProjectTemplate = ({ data, pageContext }) => {
         />
       </Sidebar>
       <Main>
-        <div className="slide-in animate-third d-grid col-12">
-          {images.map(image => {
-            const isFluid = !!image.node.childImageSharp
+        {images.map(image => {
+          const isFluid = !!image.node.childImageSharp
 
-            const imageData = isFluid ? image.node.childImageSharp.fluid : image.node.publicURL
-            const imageKey = isFluid ? image.node.childImageSharp.fluid.src : null
-            const imageRatio = isFluid ? image.node.childImageSharp.fluid.aspectRatio : .75
+          const imageData = isFluid ? image.node.childImageSharp.gatsbyImageData : image.node.publicURL
+          const imageKey = isFluid ? image.node.id : null
+          const imageRatio = isFluid ? image.node.childImageSharp.fluid.aspectRatio : .75
+          const imageAlt = image.node.base.split(".")[0]
 
-            const imageAlt = image.node.base.split(".")[0]
-
-            return (
-              <Images
-                imageRatio={imageRatio}
-                imageData={imageData}
-                imageKey={imageKey}
-                imageAlt={imageAlt}
-              />
-            )
-          })}
-          <Navigation 
-            next={next}
-            prev={prev}
-          />
-        </div>
+          return (
+            <Images
+              imageRatio={imageRatio}
+              imageData={imageData}
+              imageKey={imageKey}
+              imageAlt={imageAlt}
+            />
+          )
+        })}
+        <Navigation 
+          next={next}
+          prev={prev}
+        />
       </Main>
     </Layout>
   )

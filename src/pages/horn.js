@@ -5,7 +5,7 @@ import Layout from "components/layout"
 import Sidebar from "components/sidebar/sidebar"
 import Main from "components/main"
 import Section from "components/section"
-import { Navigation, MobileNavigation } from "components/sidebar/navigation"
+import Navigation from "components/sidebar/navigation"
 
 export const dataQuery = graphql`
   query {
@@ -62,7 +62,7 @@ const Horn = ({ data }) => {
             alt="A flyer, poster, and handbook cover for Horn Entrepreneurship"
           />
         </Section>
-        <MobileNavigation prev="diamond" next="tenantu" />
+        <Navigation prev="diamond" next="tenantu" />
       </Main>
     </Layout>
   )
