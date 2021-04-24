@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
-import { Wrapper, MobileWrapper } from "./navigation.css"
+import { Wrapper } from "./navigation.css"
 
-export const Navigation = ({ next, prev }) => (
+const Navigation = ({ next, prev }) => (
   <Wrapper>
     <span className="mr-auto">
       {prev && prev.slug ? (
@@ -21,13 +21,4 @@ export const Navigation = ({ next, prev }) => (
   </Wrapper>
 )
 
-export const MobileNavigation = ({ next, prev }) => (
-  <MobileWrapper>
-    <span>
-      <Link to={`/${prev}/`}>Prev</Link>
-    </span>
-    <span>
-      <Link to={`/${next}/`}>Next</Link>
-    </span>
-  </MobileWrapper>
-)
+export default Navigation
