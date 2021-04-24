@@ -1,15 +1,10 @@
 import React from "react"
+import { Bio } from "./about.css"
 
-const About = () => {
-  return (
-    <div className="slide-in animate-first">
-      <div>
-        <div id="bio">
-          <h1>Nate Tlaseca is a designer with an affection for the internet, digital media, and technology. He is a Delawarean and currently resides in Dallas, TX.</h1>
-        </div>
-      </div>
-    </div>
-  )
-}
+const About = () => (
+  <div>
+    <Bio>Nate Tlaseca is a web developer and designer with an affection for the internet, digital media, and technology. He is a Delawarean and currently resides in Dallas, TX.</Bio>
+  </div>
+)
 
 export default About
