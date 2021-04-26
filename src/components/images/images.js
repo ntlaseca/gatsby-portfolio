@@ -8,7 +8,7 @@ const Images = ({ imageRatio, imageKey, imageData, imageAlt }) => {
     <Section
       span={
         imageRatio === 1 ? "6"
-        : imageRatio <= .6 ? "12"
+        : imageRatio < .6 ? "4"
         : "12"
       }
     >
