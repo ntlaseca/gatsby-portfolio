@@ -188,16 +188,4 @@ export default createGlobalStyle`
     color: rgba(34, 34, 34, 0.6);
     font-family: inherit;
   }
-
-  @media (max-width: 1200px) {
-
-    #self-portrait {
-      margin-left: 0;
-    }
-
-    .project-preview {
-      grid-column: span 6;
-    }
-
-  }
 `
