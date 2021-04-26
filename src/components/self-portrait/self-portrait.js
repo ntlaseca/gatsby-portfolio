@@ -1,7 +1,8 @@
 import React from "react"
 import p5 from "p5"
+import { Container } from "./self-portrait.css"
 
-class Sketch extends React.Component {
+class SelfPortrait extends React.Component {
   constructor(props) {
     super(props)
     this.sketchRef = React.createRef();
@@ -22,8 +23,8 @@ class Sketch extends React.Component {
   }
 
   render() {
-    return <div ref={this.sketchRef} className="react-p5 slide-in animate-second"></div>;
+    return <Container ref={this.sketchRef}></Container>;
   }
 }
 
-export default Sketch
+export default SelfPortrait

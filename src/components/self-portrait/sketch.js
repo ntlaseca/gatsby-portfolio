@@ -17,7 +17,6 @@ export default function sketch(p) {
   p.setup = () => {
     p.smooth()
     let canvas = p.createCanvas(650, 710)
-    canvas.id('self-portrait')
     canvas.mousePressed(scramble)
   }
 
