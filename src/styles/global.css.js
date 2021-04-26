@@ -1,7 +1,18 @@
 import { createGlobalStyle } from "styled-components";
 import { accent, textColor, bgColor } from "constants/theme";
+import InterTtf from "fonts/inter[slnt,wght].ttf"
+import InterWoff2 from "fonts/inter[slnt,wght].woff2"
 
 export default createGlobalStyle`
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    src: local(''),
+      url(${InterWoff2}) from('woff2'),
+      url(${InterTtf}) format('truetype');   
+    font-display: swap;  
+  }
+  
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -34,7 +45,7 @@ export default createGlobalStyle`
   }
 
   body {
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     line-height: 1.5;
     font-size: 1.6rem;
     color: ${textColor};
@@ -141,13 +152,13 @@ export default createGlobalStyle`
   }
 
   h2 {
-    font-size: 2.5rem;
+    font-size: 7rem;
     line-height: 1em;
     margin-bottom: 1em;
   }
 
   h3 {
-    font-size: 2rem;
+    font-size: 5.4rem;
     line-height: 1em;
     margin-bottom: 1em;
   }
@@ -164,8 +175,8 @@ export default createGlobalStyle`
   }
 
   canvas {
-    outline: none; /* desktop browsers */
-    -webkit-tap-highlight-color: rgba(255,255,255,0); /* mobile webkit */
+    outline: none;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
   }
 
   .small {
@@ -178,18 +189,6 @@ export default createGlobalStyle`
     font-family: inherit;
   }
 
-  .react-p5 {
-    position: fixed;
-    width: 25%;
-    margin: 0 auto;
-  }
-
-  #self-portrait {
-    width: 100% !important;
-    height: auto !important;
-  }
-
-
   @media (max-width: 1200px) {
 
     #self-portrait {
@@ -198,23 +197,6 @@ export default createGlobalStyle`
 
     .project-preview {
       grid-column: span 6;
-    }
-
-  }
-
-  @media (max-width:768px) {
-
-    #self-portrait {
-      opacity: .5;
-    }
-
-    .react-p5 {
-      position: absolute;
-      width: 25%;
-      top: 20vh;
-      right: 1.25rem;
-      left: initial;
-      bottom: initial;
     }
 
   }
