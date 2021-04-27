@@ -1,7 +1,28 @@
 import { createGlobalStyle } from "styled-components";
 import { accent, textColor, bgColor } from "constants/theme";
-import InterTtf from "fonts/inter[slnt,wght].ttf"
-import InterWoff2 from "fonts/inter[slnt,wght].woff2"
+
+import InterWoff from "fonts/Inter.woff"
+import InterWoff2 from "fonts/Inter.woff2"
+import InterTtf from "fonts/Inter.ttf"
+import InterSvg from "fonts/Inter.svg"
+
+import RedactionEot from "fonts/Redaction-Regular.eot"
+import RedactionWoff from "fonts/Redaction-Regular.woff"
+import RedactionWoff2 from "fonts/Redaction-Regular.woff2"
+import RedactionTtf from "fonts/Redaction-Regular.ttf"
+import RedactionSvg from "fonts/Redaction-Regular.svg"
+
+import RedactionItalicEot from "fonts/Redaction-Italic.eot"
+import RedactionItalicWoff from "fonts/Redaction-Italic.woff"
+import RedactionItalicWoff2 from "fonts/Redaction-Italic.woff2"
+import RedactionItalicTtf from "fonts/Redaction-Italic.ttf"
+import RedactionItalicSvg from "fonts/Redaction-Italic.svg"
+
+import RedactionBoldEot from "fonts/Redaction-Bold.eot"
+import RedactionBoldWoff from "fonts/Redaction-Bold.woff"
+import RedactionBoldWoff2 from "fonts/Redaction-Bold.woff2"
+import RedactionBoldTtf from "fonts/Redaction-Bold.ttf"
+import RedactionBoldSvg from "fonts/Redaction-Bold.svg"
 
 export default createGlobalStyle`
   @font-face {
@@ -9,10 +30,54 @@ export default createGlobalStyle`
     font-style: normal;
     src: local(''),
       url(${InterWoff2}) from('woff2'),
-      url(${InterTtf}) format('truetype');   
-    font-display: swap;  
+      url(${InterWoff}) from('woff'),
+      url(${InterTtf}) format('truetype'),
+      url(${InterSvg}#Inter) format('svg');   
+    font-display: swap;
   }
-  
+
+  @font-face {
+    font-family: 'Redaction';
+    font-style: normal;
+    font-weight: 400;
+    src: url(${RedactionEot});
+    src: local(''),
+      url(${RedactionEot}?#iefix) format('embedded-opentype'),
+      url(${RedactionWoff2}) format('woff2'),
+      url(${RedactionWoff}) format('woff'),
+      url(${RedactionTtf}) format('truetype'),
+      url(${RedactionSvg}#Redaction) format('svg');
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Redaction';
+    font-style: italic;
+    font-weight: 400;
+    src: url(${RedactionItalicEot});
+    src: local(''),
+      url(${RedactionItalicEot}?#iefix) format('embedded-opentype'), 
+      url(${RedactionItalicWoff2}) format('woff2'),
+      url(${RedactionItalicWoff}) format('woff'),
+      url(${RedactionItalicTtf}) format('truetype'),
+      url(${RedactionItalicSvg}#Redaction) format('svg');
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Redaction';
+    font-style: normal;
+    font-weight: 700;
+    src: url(${RedactionBoldEot});
+    src: local(''),
+      url(${RedactionBoldEot}?#iefix) format('embedded-opentype'),
+      url(${RedactionBoldWoff2}) format('woff2'),
+      url(${RedactionBoldWoff}) format('woff'),
+      url(${RedactionBoldTtf}) format('truetype'),
+      url(${RedactionBoldSvg}#Redaction) format('svg');
+    font-display: swap;
+  }
+
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -130,6 +195,7 @@ export default createGlobalStyle`
   }
 
   p, span {
+    font-family: inherit;
     font-size: 2.8rem;
     font-variation-settings: 'wght' 400, 'wdth' 100;
     line-height: 1.5em;
@@ -142,7 +208,7 @@ export default createGlobalStyle`
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: serif;
+    font-family: 'Redaction', Garamond, Times New Roman, serif;
     font-weight: 400;
     word-break: break-word;
     hyphens: auto;
