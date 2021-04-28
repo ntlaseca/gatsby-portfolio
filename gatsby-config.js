@@ -25,9 +25,22 @@ module.exports = {
       options: {
         name: `Nate Tlaseca - Portfolio`,
         short_name: `Nate Tlaseca`,
+        lang: `en`,
+        display: `standalone`,
+        icon: `src/data/images/logo.svg`,
+        cache_busting_mode: `none`,
         start_url: `/`,
-        icon: `src/data/images/logo512.png`,
+        background_color: `#e6e6e6`,
+        theme_color: `#6a62fa`,
       },
+    },
+    {
+      resolve: `gatsby-plugin-react-svg`,
+      options: {
+        rule: {
+          include: /images\/.*\.svg$/,
+        }
+      }
     },
   ],
 }
