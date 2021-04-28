@@ -1,11 +1,10 @@
 import React from "react"
+import { motion } from "framer-motion"
 
-const LiveEasy = () => {
-  return (
-    <div>
-      <h1>Live easy.</h1>
-    </div>
-  )
-}
+const LiveEasy = () => (
+  <motion.div>
+    <span>Live easy.</span>
+  </motion.div>
+)
 
 export default LiveEasy

@@ -19,17 +19,6 @@
   }
 }
 
-@font-face {
-  font-family: 'Metropolis';
-  font-style: normal;
-  font-weight: 700;
-  src: url('../../styles/fonts/Metropolis-Bold.woff2') format('woff2'),
-       url('../../styles/fonts/Metropolis-Bold.woff') format('woff'),
-       url('../../styles/fonts/Metropolis-Bold.otf') format('opentype-variations'),
-       url('../../styles/fonts/Metropolis-Bold.ttf') format('truetype-variations'),
-       url('../../styles/fonts/Metropolis-Bold.eot?#iefix') format('embedded-opentype'),
-}
-
 .floating {
   font-family: 'Metropolis', sans-serif;
   font-weight: 700;
