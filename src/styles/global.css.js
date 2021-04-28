@@ -115,9 +115,7 @@ export default createGlobalStyle`
     color: ${textColor};
     background-color: ${bgColor};
     -webkit-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+    text-rendering: auto;
     -webkit-font-feature-settings: "pnum";
     font-feature-settings: "pnum";
     font-variant-numeric: proportional-nums;
@@ -155,6 +153,7 @@ export default createGlobalStyle`
     text-decoration: underline;
     word-break: break-word;
     hyphens: auto;
+    transition: all 200ms ease;
 
     &:hover {
       color: ${accent};
