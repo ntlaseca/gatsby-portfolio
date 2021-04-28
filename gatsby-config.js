@@ -1,8 +1,11 @@
-const siteConfig = require('./site-config');
+const siteConfig = require("./site-config")
+const {
+  api: { projectId, dataset },
+} = requireConfig("./studio/sanity.json")
 
 module.exports = {
   siteMetadata: {
-    ...siteConfig
+    ...siteConfig,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -11,6 +14,13 @@ module.exports = {
       options: {
         name: `data`,
         path: `${__dirname}/src/data`,
+      },
+    },
+    {
+      resolve: "gatsby-source-sanity",
+      options: {
+        projectId,
+        dataset,
       },
     },
     `gatsby-plugin-image`,
@@ -39,8 +49,24 @@ module.exports = {
       options: {
         rule: {
           include: /images\/.*\.svg$/,
-        }
-      }
+        },
+      },
     },
   ],
+}
+
+function requireConfig(path) {
+  try {
+    return require(path)
+  } catch (e) {
+    console.error(
+      "Failed to require sanity.json. Fill in projectId and dataset name manually in gatsby-config.js"
+    )
+    return {
+      api: {
+        projectId: process.env.SANITY_PROJECT_ID || "",
+        dataset: process.env.SANITY_DATASET || "",
+      },
+    }
+  }
 }
