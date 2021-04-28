@@ -33,14 +33,14 @@ const ProjectList = () => {
 
   return (
     <PreviewGrid>
-      {previews.map(({ node: preview }) => {
+      {previews.map(({ node: preview }, i) => {
         const alt = preview.alt
         const slug = preview.slug
         const imageData = getImage(
           preview.image.childImageSharp.gatsbyImageData
         )
 
-        return <ProjectPreview alt={alt} slug={slug} imageData={imageData} />
+        return <ProjectPreview alt={alt} slug={slug} imageData={imageData} key={i} />
       })}
     </PreviewGrid>
   )
