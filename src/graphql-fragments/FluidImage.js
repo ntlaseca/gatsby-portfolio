@@ -4,7 +4,7 @@ export const FluidImage = graphql`
   fragment FluidImage on File {
     childImageSharp {
       gatsbyImageData(
-        width: 1440
+        layout: FULL_WIDTH
         quality: 100
         placeholder: TRACED_SVG
         tracedSVGOptions: { color: "rgb(106,98,250)" }
