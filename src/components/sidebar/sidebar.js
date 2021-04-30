@@ -18,8 +18,6 @@ const Sidebar = ({ header, description, prev, next }) => {
 Sidebar.propTypes = {
   header: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  prev: PropTypes.string.isRequired,
-  next: PropTypes.string.isRequired,
 }
 
 export default Sidebar
