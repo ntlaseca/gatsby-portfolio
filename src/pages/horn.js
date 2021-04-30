@@ -30,17 +30,16 @@ const Horn = ({ data }) => {
   
   return (
     <Layout>
-      <Sidebar>
-        <div>
-          <h2 className="slide-in animate-first">{header}</h2>
-          <p className="slide-in animate-second">{description}</p>
-        </div>
-        <Navigation prev="diamond" next="tenantu" />
-      </Sidebar>
+      <Sidebar
+        header={header}
+        description={description}
+        prev="diamond"
+        next="tenantu"
+      />
       <Main>
         <Section span={12}>
           <GatsbyImage
-            imageData={data.image1.childImageSharp.gatsbyImageData}
+            image={data.image1.childImageSharp.gatsbyImageData}
             alt="A flyer, poster, and handbook cover for Horn Entrepreneurship"
           />
         </Section>
