@@ -3,38 +3,38 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { StaticQuery, graphql } from "gatsby"
 
-const detailsQuery = graphql`
+const HeadQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        siteAuthor
-        siteDescription
-        siteTitle
-      }
+    site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      title
+      description
+      keywords
+      author
     }
   }
 `
 
-function Head({ siteDescription, lang, meta, siteTitle }) {
+function Head({ description, lang, meta, keywords = [], title, bodyAttr }) {
   return (
     <StaticQuery
-      query={detailsQuery}
+      query={HeadQuery}
       render={data => {
         if (!data.site) {
           return
         }
         const metaDescription =
-          siteDescription || data.site.siteMetadata.siteDescription
+          description || (data.site && data.site.description) || ""
+        const siteTitle = (data.site && data.site.title) || ""
+        const siteAuthor =
+          (data.site && data.site.author && data.site.author.name) || ""
+        const pageTitle = title || siteTitle
         return (
           <Helmet
-            htmlAttributes={{
-              lang,
-            }}
-            title={siteTitle}
+            bodyAttributes={bodyAttr}
+            htmlAttributes={{ lang }}
+            title={pageTitle}
             titleTemplate={
-              siteTitle === data.site.siteMetadata.siteTitle
-                ? "%s"
-                : `%s | ${data.site.siteMetadata.siteTitle}`
+              pageTitle === siteTitle ? `${siteTitle} — Design & Development` : `${siteTitle} — %s`
             }
             meta={[
               {
@@ -43,7 +43,7 @@ function Head({ siteDescription, lang, meta, siteTitle }) {
               },
               {
                 property: "og:title",
-                content: siteTitle,
+                content: title,
               },
               {
                 property: "og:description",
@@ -59,18 +59,26 @@ function Head({ siteDescription, lang, meta, siteTitle }) {
               },
               {
                 name: "twitter:creator",
-                content: data.site.siteMetadata.siteAuthor,
+                content: siteAuthor,
               },
               {
                 name: "twitter:title",
-                content: siteTitle,
+                content: title,
               },
               {
                 name: "twitter:description",
                 content: metaDescription,
               },
             ]
-            .concat(meta)}
+              .concat(
+                keywords && keywords.length > 0
+                  ? {
+                      name: "keywords",
+                      content: keywords.join(", "),
+                    }
+                  : []
+              )
+              .concat(meta)}
           />
         )
       }}
@@ -85,11 +93,11 @@ Head.defaultProps = {
 }
 
 Head.propTypes = {
-  siteTitle: PropTypes.string.isRequired,
-  siteDescription: PropTypes.string.isRequired,
+  description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
+  title: PropTypes.string.isRequired,
 }
 
 export default Head
