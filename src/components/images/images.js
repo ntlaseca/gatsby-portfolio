@@ -3,7 +3,7 @@ import Section from "components/section"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { Image } from "./images.css"
 
-const Images = ({ imageRatio, imageKey, imageData, imageAlt }) => {
+const Images = ({ key, isSharp, imageRatio, imageKey, imageData, imageAlt }) => {
   return (
     <Section
       span={
@@ -11,12 +11,13 @@ const Images = ({ imageRatio, imageKey, imageData, imageAlt }) => {
         : imageRatio < .6 ? "4"
         : "12"
       }
+      key={key}
     >
-      {!!imageKey 
+      {!!isSharp 
         ? <GatsbyImage
-            key={imageKey}
             image={imageData}
             alt={imageAlt}
+            key={imageKey}
           />
         : <Image
             src={imageData}
