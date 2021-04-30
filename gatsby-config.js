@@ -1,11 +1,12 @@
-const siteConfig = require("./site-config")
 const {
   api: { projectId, dataset },
 } = requireConfig("./studio/sanity.json")
 
 module.exports = {
   siteMetadata: {
-    ...siteConfig,
+    title: `Nate Tlaseca – Portfolio`,
+    siteUrl: `https://natetlaseca.com`,
+    description: `Nate Tlaseca is a human and creative web developer from Delaware.`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
