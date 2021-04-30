@@ -1,7 +1,9 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Head from "components/head"
-import Images from "components/images"
+import Section from "components/section"
+import { GatsbyImage } from "gatsby-plugin-image"
+import { Image } from "components/images/images.css"
 import Layout from "components/layout"
 import Sidebar from "components/sidebar/sidebar"
 import Navigation from "components/sidebar/navigation"
@@ -71,21 +73,36 @@ const ProjectTemplate = ({ data, pageContext }) => {
         prev={prev}
       />
       <Main>
-        {images.map(image => {
+        {images.map((image, i) => {
           const isSharp = !!image.node.childImageSharp
 
           const imageData = isSharp ? image.node.childImageSharp.gatsbyImageData : image.node.publicURL
-          const imageKey = isSharp ? image.node.id : null
-          const imageRatio = isSharp ? (image.node.childImageSharp.original.width / image.node.childImageSharp.original.height) : .75
           const imageAlt = image.node.base.split(".")[0]
+          const imageRatio = isSharp ? (image.node.childImageSharp.original.width / image.node.childImageSharp.original.height) : .75
+          const imageKey = image.node.id
 
           return (
-            <Images
-              imageRatio={imageRatio}
-              imageData={imageData}
-              imageKey={imageKey}
-              imageAlt={imageAlt}
-            />
+            <Section
+              span={
+                imageRatio === 1 ? "6"
+                : imageRatio < .6 ? "4"
+                : "12"
+              }
+              key={i}
+            >
+              {!!isSharp 
+                ? <GatsbyImage
+                    image={imageData}
+                    alt={imageAlt}
+                    key={imageKey}
+                  />
+                : <Image
+                    src={imageData}
+                    alt={imageAlt}
+                    key={imageKey}
+                  />
+              }
+            </Section>
           )
         })}
         <Navigation 
