@@ -66,9 +66,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
 const pathsToIgnore = ['/tenantu', '/horn']
 
-exports.onCreatePage = ({ page, actions }) => {
+exports.onCreatePage = ({ page, actions: { deletePage } }) => {
   if (pathsToIgnore.includes(page.path)) {
-    const { deletePage } = actions
     deletePage(page)
   }
 }
