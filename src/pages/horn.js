@@ -17,7 +17,7 @@ export const query = graphql`
     image1: file(relativePath: { eq: "images/projects/horn/01 Horn flyers and covers.jpg" }) {
       ...FluidImage
     }
-    image2: file(relativePath: { eq: "images/projects/horn/02 Horn certificate flyers animated.gif" }) {
+    image2: file(relativePath: { eq: "images/projects/horn/03 Tech Innovation Showcase poster.jpg" }) {
       ...FluidImage
     }
   }

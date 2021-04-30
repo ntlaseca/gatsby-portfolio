@@ -23,7 +23,7 @@ export const dataQuery = graphql`
       ...FluidImage
     }
     image3: file(relativePath: { eq: "images/projects/tenantu/03 TenantU house illustrations.gif" }) {
-      ...FluidImage
+      publicURL
     }
     image4: file(relativePath: { eq: "images/projects/tenantu/04 TenantU application icons.png" }) {
       ...FluidImage
@@ -78,7 +78,9 @@ const TenantU = ({ data }) => {
             alt="Mockup of the TenantU login screen, scaled to a mobile size"
           />
         </Section>
-        <LiveEasy />
+        <Section span={12}>
+          <LiveEasy />
+        </Section>
         <Navigation prev="horn" next="hub" />
       </Main>
     </Layout>
