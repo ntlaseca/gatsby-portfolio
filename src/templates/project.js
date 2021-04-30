@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Head from "components/head"
 import Images from "components/images"
 import Layout from "components/layout"
 import Sidebar from "components/sidebar/sidebar"
@@ -30,16 +31,17 @@ export const query = graphql`
           base
           publicURL
           childImageSharp {
-            fluid {
-              aspectRatio
-            }
             gatsbyImageData(
-              width: 1440
+              layout: FULL_WIDTH
               quality: 100
               placeholder: TRACED_SVG
-              tracedSVGOptions: { color: "rgb(106,98,250)" }
+              tracedSVGOptions: { color: "rgb(106,98,250)", turdSize: 32 }
               formats: [AUTO, WEBP, AVIF]
             )
+            original {
+              width
+              height
+            }
           }
         }
       }
@@ -50,6 +52,7 @@ export const query = graphql`
 const ProjectTemplate = ({ data, pageContext }) => {
   const project = data.projectsJson
   const header = project.header
+  const meta = project.meta
   const description = project.description
   
   const images = data.allFile.edges
@@ -57,23 +60,23 @@ const ProjectTemplate = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <Sidebar>
-        <div>
-          <h2 className="slide-in animate-first">{header}</h2>
-          <p className="slide-in animate-second">{description}</p>
-        </div>
-        <Navigation
-          next={next}
-          prev={prev}
-        />
-      </Sidebar>
+      <Head 
+        title={header}
+        description={meta}
+      />
+      <Sidebar
+        header={header}
+        description={description}
+        next={next}
+        prev={prev}
+      />
       <Main>
         {images.map(image => {
-          const isFluid = !!image.node.childImageSharp
+          const isSharp = !!image.node.childImageSharp
 
-          const imageData = isFluid ? image.node.childImageSharp.gatsbyImageData : image.node.publicURL
-          const imageKey = isFluid ? image.node.id : null
-          const imageRatio = isFluid ? image.node.childImageSharp.fluid.aspectRatio : .75
+          const imageData = isSharp ? image.node.childImageSharp.gatsbyImageData : image.node.publicURL
+          const imageKey = isSharp ? image.node.id : null
+          const imageRatio = isSharp ? (image.node.childImageSharp.original.width / image.node.childImageSharp.original.height) : .75
           const imageAlt = image.node.base.split(".")[0]
 
           return (
