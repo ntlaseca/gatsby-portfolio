@@ -5,7 +5,7 @@ import Layout from "components/layout"
 import Sidebar from "components/sidebar/sidebar"
 import Main from "components/main"
 import Section from "components/section"
-import Navigation from "components/sidebar/navigation"
+import { MobileNavigation } from "components/sidebar/navigation"
 
 import LiveEasy from "components/live-easy/live-easy"
 
@@ -81,7 +81,7 @@ const TenantU = ({ data }) => {
         <Section span={12}>
           <LiveEasy />
         </Section>
-        <Navigation prev="horn" next="hub" />
+        <MobileNavigation prev="horn" next="hub" />
       </Main>
     </Layout>
   )
