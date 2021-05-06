@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { accent, textColor, bgColor } from "constants/theme";
+import MEDIA from "helpers/mediaTemplates";
 
 import InterWoff from "fonts/Inter.woff"
 import InterWoff2 from "fonts/Inter.woff2"
@@ -198,12 +199,14 @@ export default createGlobalStyle`
     font-size: 2.8rem;
     font-variation-settings: 'wght' 400, 'wdth' 100;
     line-height: 1.5em;
-  }
 
-  h1 {
-    font-size: 8.4rem;
-    line-height: 1em;
-    font-variation-settings: 'wght' 700;
+    ${MEDIA.DESKTOP`
+      font-size: 2.4rem;
+    `}
+
+    ${MEDIA.TABLET`
+      font-size: 2rem;
+    `}
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -215,22 +218,60 @@ export default createGlobalStyle`
     letter-spacing: -.02em;
   }
 
+  h1 {
+    font-size: 8.4rem;
+    line-height: 1em;
+    font-variation-settings: 'wght' 700;
+
+    ${MEDIA.DESKTOP`
+      font-size: 7.2rem;
+    `}
+
+    ${MEDIA.TABLET`
+      font-size: 6rem;
+    `}
+  }
+
   h2 {
     font-size: 7rem;
     line-height: 1em;
     margin-bottom: 1em;
+
+    ${MEDIA.DESKTOP`
+      font-size: 5.6rem;
+    `}
+
+    ${MEDIA.TABLET`
+      font-size: 4.2rem;
+    `}
   }
 
   h3 {
     font-size: 5.4rem;
     line-height: 1em;
     margin-bottom: 1em;
+
+    ${MEDIA.DESKTOP`
+      font-size: 4.2rem;
+    `}
+
+    ${MEDIA.TABLET`
+      font-size: 3rem;
+    `}
   }
 
   h4 {
-    font-size: 1rem;
+    font-size: 2.8rem;
     font-style: italic;
     margin-bottom: 0.2em;
+
+    ${MEDIA.DESKTOP`
+      font-size: 2.4rem;
+    `}
+
+    ${MEDIA.TABLET`
+      font-size: 2rem;
+    `}
   }
 
   ::selection, ::-moz-selection {
@@ -243,13 +284,19 @@ export default createGlobalStyle`
     -webkit-tap-highlight-color: rgba(255,255,255,0);
   }
 
-  .small {
-    font-size: 80%;
-    margin-bottom: 0;
+  .mobileOnly {
+    display: none;
+
+    ${MEDIA.DESKTOP`
+      display: block;
+    `}
   }
 
-  .light {
-    color: rgba(34, 34, 34, 0.6);
-    font-family: inherit;
+  .desktopOnly {
+    display: block;
+
+    ${MEDIA.DESKTOP`
+      display: none;
+    `}
   }
 `
