@@ -3,6 +3,9 @@ const {
 } = requireConfig("./studio/sanity.json")
 
 module.exports = {
+  flags: {
+    PRESERVE_WEBPACK_CACHE: true
+  },
   siteMetadata: {
     title: `Nate Tlaseca – Portfolio`,
     siteUrl: `https://natetlaseca.com`,
