@@ -6,7 +6,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { Image } from "components/images/images.css"
 import Layout from "components/layout"
 import Sidebar from "components/sidebar/sidebar"
-import Navigation from "components/sidebar/navigation"
+import { MobileNavigation } from "components/sidebar/navigation"
 import Main from "components/main"
 
 export const query = graphql`
@@ -105,7 +105,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
             </Section>
           )
         })}
-        <Navigation 
+        <MobileNavigation 
           next={next}
           prev={prev}
         />
