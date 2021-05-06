@@ -12,6 +12,10 @@ export const Logo = styled.div`
     height: 7.2rem;
 
     ${MEDIA.DESKTOP`
+      height: 6rem;
+    `}
+
+    ${MEDIA.TABLET`
       height: 4.8rem;
     `}
 

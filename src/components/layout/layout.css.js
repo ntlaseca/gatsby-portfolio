@@ -9,10 +9,14 @@ export const Content = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
-  grid-gap: 2.4rem;
+  grid-gap: 4.8rem;
   padding-top: 19.6rem;
 
   ${MEDIA.DESKTOP`
+    padding-top: 16.4rem;
+  `}
+
+  ${MEDIA.TABLET`
     padding-top: 12rem;
   `}
 `
