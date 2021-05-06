@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Navigation from "./navigation"
+import { Navigation } from "./navigation"
 import { Wrapper } from "./sidebar.css"
 
 const Sidebar = ({ header, description, prev, next }) => {
