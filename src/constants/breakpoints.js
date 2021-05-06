@@ -1,5 +1,7 @@
-export default {
-  DESKTOP: 992,
-  TABLET: 768,
-  PHONE: 376,
+const BREAKPOINTS = {
+  DESKTOP: 1200,
+  TABLET: 992,
+  PHONE: 576,
 };
+
+export default BREAKPOINTS
