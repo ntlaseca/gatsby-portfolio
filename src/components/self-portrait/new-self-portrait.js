@@ -1,6 +1,7 @@
 import React, { Suspense, useRef } from "react"
 import { Canvas } from "@react-three/fiber"
 import { Stage, OrbitControls } from "@react-three/drei"
+import { motion } from "framer-motion"
 import Model from "./models/model"
 
 import { Container } from "./new-self-portrait.css"
@@ -20,11 +21,23 @@ function Loading() {
   )
 }
 
+const variants = {
+  hidden: { 
+    opacity: 0 
+  },
+  visible: { 
+    opacity: 1,
+    transition: {
+      delay: 0.5,
+    },
+  },
+}
+
 export default function NewSelfPortrait(props) {
   const ref = useRef()
 
   return (
-    <Container>
+    <Container as={motion.div} initial="hidden" animate="visible" variants={variants}>
       <Canvas 
         gl={{ preserveDrawingBuffer: true }} 
         dpr={[1, 1.5]} 
