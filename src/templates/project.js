@@ -90,14 +90,14 @@ const ProjectTemplate = ({ data, pageContext }) => {
               }
               key={i}
             >
-              {!!isSharp 
-                ? <GatsbyImage
-                    image={imageData}
+              {image.extension === "gif" 
+                ? <Image
+                    src={imageData}
                     alt={imageAlt}
                     key={imageKey}
                   />
-                : <Image
-                    src={imageData}
+                : <GatsbyImage
+                    image={imageData}
                     alt={imageAlt}
                     key={imageKey}
                   />
