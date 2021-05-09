@@ -1,18 +1,6 @@
 import React, { useRef } from "react"
-import { extend, useFrame, useThree } from "@react-three/fiber"
-import { useGLTF, OrbitControls } from "@react-three/drei"
-
-extend({ OrbitControls })
-
-const CameraControls = () => {
-  const {
-    camera,
-    gl: { domElement },
-  } = useThree()
-  const controls = useRef()
-  useFrame((state) => controls.current.update())
-  return <OrbitControls ref={controls} args={[camera, domElement]} />
-}
+import { useGLTF} from "@react-three/drei"
+import { accent } from "constants/theme"
 
 export default function Model(props) {
   const group = useRef()
@@ -23,13 +11,17 @@ export default function Model(props) {
         geometry={nodes.Head.geometry}
         material={nodes.Head.material}
         position={[0, 0.44, -1.74]}
-      />
+      >
+        <meshStandardMaterial color={accent} />
+      </mesh>
       <mesh
         geometry={nodes.Hair.geometry}
         material={nodes.Hair.material}
-        position={[-0.17, 2.76, -1.77]}
+        position={[-0.18, 2.76, -1.78]}
         rotation={[Math.PI / 2, 0, 0]}
-      />
+      >
+        <meshStandardMaterial color={accent} />
+      </mesh>
     </group>
   )
 }
