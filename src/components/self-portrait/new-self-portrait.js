@@ -8,11 +8,13 @@ import { accent } from "constants/theme"
 
 function Loading() {
   return (
-    <mesh visible position={[0, 0, 0]} rotation={[10, 10, 0]}>
-      <boxGeometry attach="geometry" args={[1, 1, 1]} />
-      <meshPhongMaterial
+    <mesh visible position={[0, 0, 0]} rotation={[0, 0, 0]}>
+      <sphereGeometry attach="geometry" args={[1, 16, 16]} />
+      <meshStandardMaterial
         attach="material"
         color={accent}
+        transparent
+        opacity={0.4}
       />
     </mesh>
   )
@@ -31,13 +33,13 @@ export default function NewSelfPortrait(props) {
         <ambientLight intensity={0.25} />
         <Suspense fallback={<Loading />}>
           <Stage
+            adjustCamera
             controls={ref}
             contactShadow={false}
             shadows={false}
-            adjustCamera
-            intensity={0.8}
+            intensity={0.75}
           >
-            <Model />
+            <Model {...props} />
           </Stage>
         </Suspense>
         <OrbitControls
