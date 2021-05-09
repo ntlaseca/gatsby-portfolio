@@ -34,7 +34,7 @@ export default createGlobalStyle`
       url(${InterWoff}) from('woff'),
       url(${InterTtf}) format('truetype'),
       url(${InterSvg}#Inter) format('svg');   
-    font-display: swap;
+    font-display: auto;
   }
 
   @font-face {
@@ -48,7 +48,7 @@ export default createGlobalStyle`
       url(${RedactionWoff}) format('woff'),
       url(${RedactionTtf}) format('truetype'),
       url(${RedactionSvg}#Redaction) format('svg');
-    font-display: swap;
+    font-display: auto;
   }
 
   @font-face {
@@ -62,7 +62,7 @@ export default createGlobalStyle`
       url(${RedactionItalicWoff}) format('woff'),
       url(${RedactionItalicTtf}) format('truetype'),
       url(${RedactionItalicSvg}#Redaction) format('svg');
-    font-display: swap;
+    font-display: auto;
   }
 
   @font-face {
@@ -76,7 +76,7 @@ export default createGlobalStyle`
       url(${RedactionBoldWoff}) format('woff'),
       url(${RedactionBoldTtf}) format('truetype'),
       url(${RedactionBoldSvg}#Redaction) format('svg');
-    font-display: swap;
+    font-display: auto;
   }
 
   html, body, div, span, applet, object, iframe,
@@ -149,6 +149,7 @@ export default createGlobalStyle`
   a {
     font-size: inherit;
     color: inherit;
+    font-weight: 600;
     font-variation-settings: 'wght' 600, 'wdth' 100;
     cursor: url('../cursors/cursor_link_min.svg') 22 22, pointer;
     text-decoration: underline;
