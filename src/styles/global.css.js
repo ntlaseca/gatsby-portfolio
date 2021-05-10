@@ -1,5 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import { accent, textColor, bgColor } from "constants/theme";
+import Cursor from "cursors/cursor_pointed_min.svg"
+import Pointer from "cursors/cursor_link_min.svg"
 import MEDIA from "helpers/mediaTemplates";
 
 import InterWoff from "fonts/Inter.woff"
@@ -107,6 +109,7 @@ export default createGlobalStyle`
 
   html {
     font-size: 62.5%;
+    cursor: url(${Cursor}), default;
   }
 
   body {
@@ -151,7 +154,7 @@ export default createGlobalStyle`
     color: inherit;
     font-weight: 600;
     font-variation-settings: 'wght' 600, 'wdth' 100;
-    cursor: url('../cursors/cursor_link_min.svg') 22 22, pointer;
+    cursor: url(${Pointer}) 22 22, pointer;
     text-decoration: underline;
     word-break: break-word;
     hyphens: auto;
