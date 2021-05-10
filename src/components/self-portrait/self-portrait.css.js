@@ -1,9 +1,11 @@
 import styled from "styled-components"
 import MEDIA from "helpers/mediaTemplates"
 
-export const Container = styled.div`
+export const Container =  styled.div`
   position: fixed;
-  width: 25%;
+  z-index: 0;
+  width: calc(33.333% - 4.8rem);
+  height: 60%;
 
   & canvas {
     width: 100% !important;
@@ -12,11 +14,12 @@ export const Container = styled.div`
 
   ${MEDIA.DESKTOP`
     position: absolute;
-    width: 25%;
-    top: 20vh;
-    right: 2.8rem;
-    left: initial;
-    bottom: initial;
+    width: 100%;
+    height: 40%;
+    top: 20%;
+    right: 0;
+    bottom: 0;
+    left: 20%;
     z-index: -1;
 
     & canvas {
