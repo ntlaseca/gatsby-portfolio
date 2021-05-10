@@ -8,8 +8,11 @@ export const Wrapper = styled.header`
 `
 
 export const Logo = styled.div`
+  opacity: 1;
+  
   & img {
     height: 7.2rem;
+    transition: all 250ms ease;
 
     ${MEDIA.DESKTOP`
       height: 6rem;

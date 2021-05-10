@@ -1,16 +1,22 @@
-import React from "react";
-import { Link } from "gatsby";
+import React from "react"
+import { Link } from "gatsby"
+import { motion } from "framer-motion"
 import { Wrapper, Logo } from "./header.css"
-import logo from "data/images/logo.svg";
+import logo from "data/images/logo.svg"
 
 const Header = () => (
   <Wrapper>
-    <Logo>
+    <Logo
+      as={motion.div}
+      whileHover={{
+        opacity: 0.75,
+      }}
+    >
       <Link to="/">
-        <img src={logo} alt="Nate Tlaseca's logo"/>
+        <img src={logo} alt="Nate Tlaseca's logo" />
       </Link>
     </Logo>
   </Wrapper>
-);
+)
 
-export default Header;
+export default Header
