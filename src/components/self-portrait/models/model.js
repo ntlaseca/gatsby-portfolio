@@ -1,17 +1,13 @@
 import React, { useRef } from "react"
-import { useGLTF} from "@react-three/drei"
+import { useGLTF } from "@react-three/drei"
 import { accent } from "constants/theme"
 
 export default function Model(props) {
   const group = useRef()
-  const { nodes, materials } = useGLTF('/tlaseca.glb')
+  const { nodes, materials } = useGLTF("/tlaseca.glb")
   return (
     <group ref={group} {...props} dispose={null}>
-      <mesh
-        geometry={nodes.Head.geometry}
-        material={nodes.Head.material}
-        position={[0, 0.44, -1.74]}
-      >
+      <mesh geometry={nodes.Head.geometry} material={nodes.Head.material}>
         <meshStandardMaterial color={accent} />
       </mesh>
       <mesh
