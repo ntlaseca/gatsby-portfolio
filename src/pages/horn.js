@@ -74,88 +74,88 @@ const Horn = ({ data }) => {
         next="tenantu"
       />
       <Main>
-        <Section span={12}>
+        <Section span={6}>
           <GatsbyImage
             image={data.image1.childImageSharp.gatsbyImageData}
             alt="A flyer, poster, and handbook cover for Horn Entrepreneurship"
           />
         </Section>
-        <Section span={12}>
+        <Section span={6}>
           <img
             src={data.image2.publicURL}
             alt="A series of Horn certificate program flyers"
           />
         </Section>
-        <Section span={12}>
+        <Section span={6}>
           <GatsbyImage
             image={data.image3.childImageSharp.gatsbyImageData}
             alt="Poster for the Tech Innovation Showcase"
           />
         </Section>
-        <Section span={6}>
+        <Section span={3}>
           <GatsbyImage
             image={data.image4.childImageSharp.gatsbyImageData}
             alt="Brochure for the Tech Innovation Showcase"
           />
         </Section>
-        <Section span={6}>
+        <Section span={3}>
           <GatsbyImage
             image={data.image5.childImageSharp.gatsbyImageData}
             alt="Brochure interior for the Tech Innovation Showcase"
           />
         </Section>
-        <Section span={12}>
+        <Section span={6}>
           <GatsbyImage
             image={data.image6.childImageSharp.gatsbyImageData}
             alt="Inside page of the Success Stories book"
           />
         </Section>
-        <Section span={12}>
+        <Section span={6}>
           <GatsbyImage
             image={data.image7.childImageSharp.gatsbyImageData}
             alt="Success Stories spread 1"
           />
         </Section>
-        <Section span={12}>
+        <Section span={6}>
           <GatsbyImage
             image={data.image8.childImageSharp.gatsbyImageData}
             alt="Success Stories spread 2"
           />
         </Section>
-        <Section span={12}>
+        <Section span={6}>
           <GatsbyImage
             image={data.image9.childImageSharp.gatsbyImageData}
             alt="Success Stories spread 3"
           />
         </Section>
-        <Section span={12}>
+        <Section span={6}>
           <RotatingCard />
         </Section>
-        <Section span={12}>
+        <Section span={6}>
           <GatsbyImage
             image={data.image10.childImageSharp.gatsbyImageData}
             alt="Horn yearbook covers"
           />
         </Section>
-        <Section span={12}>
+        <Section span={6}>
           <GatsbyImage
             image={data.image11.childImageSharp.gatsbyImageData}
             alt="VDC Game Night II flyer"
           />
         </Section>
-        <Section span={12}>
+        <Section span={6}>
           <img
             src={data.image12.publicURL}
             alt="Horn Pitch party flyers"
           />
         </Section>
-        <Section span={12}>
+        <Section span={6}>
           <GatsbyImage
             image={data.image13.childImageSharp.gatsbyImageData}
             alt="E-Club flyers"
           />
         </Section>
-        <Section span={12}>
+        <Section span={6}>
           <GatsbyImage
             image={data.image14.childImageSharp.gatsbyImageData}
             alt="E-Club flyer arrangement"

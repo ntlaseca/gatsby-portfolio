@@ -48,37 +48,37 @@ const TenantU = ({ data }) => {
         next="hub"
       />
       <Main>
-        <Section span={12}>
+        <Section span={6}>
           <GatsbyImage
             image={data.image1.childImageSharp.gatsbyImageData}
             alt="Landing page mockup for the TenantU website"
           />
         </Section>
-        <Section span={12}>
+        <Section span={6}>
           <GatsbyImage
             image={data.image2.childImageSharp.gatsbyImageData}
             alt="TenantU house illustrations"
           />
         </Section>
-        <Section span={12}>
+        <Section span={6}>
           <img
             src={data.image3.publicURL}
             alt="Details of the TenantU house illustrations"
           />
         </Section>
-        <Section span={12}>
+        <Section span={6}>
           <GatsbyImage
             image={data.image4.childImageSharp.gatsbyImageData}
             alt="Icons for the TenantU UI"
           />
         </Section>
-        <Section span={12}>
+        <Section span={6}>
           <GatsbyImage
             image={data.image5.childImageSharp.gatsbyImageData}
             alt="Mockup of the TenantU login screen, scaled to a mobile size"
           />
         </Section>
-        <Section span={12}>
+        <Section span={6}>
           <LiveEasy />
         </Section>
         <MobileNavigation prev="horn" next="hub" />

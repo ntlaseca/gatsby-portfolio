@@ -84,9 +84,9 @@ const ProjectTemplate = ({ data, pageContext }) => {
           return (
             <Section
               span={
-                imageRatio === 1 ? "6"
-                : imageRatio < .6 ? "4"
-                : "12"
+                imageRatio === 1 ? "3"
+                : imageRatio < .6 ? "2"
+                : "6"
               }
               key={i}
             >
