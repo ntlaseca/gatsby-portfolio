@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Head from "components/head"
 import Layout from "components/layout"
 import About from "components/about/about"
-import NewSelfPortrait from "components/self-portrait/new-self-portrait"
+import SelfPortrait from "components/self-portrait/self-portrait"
 import Main from "components/main"
 import ProjectList from "components/project-list/project-list"
 
@@ -29,7 +29,7 @@ const IndexPage = ({ data }) => {
         description={description} 
         keywords={keywords} 
       />
-      <NewSelfPortrait />
+      <SelfPortrait />
       <Main>
         <About />
         <ProjectList />
