@@ -1,32 +1,38 @@
 [
   {
     "image": "./images/panels/panel_diamond-challenge.png",
-    "alt": "Diamond Challenge",
-    "slug": "diamond"    
+    "title": "Diamond Challenge",
+    "slug": "diamond",
+    "roles": ["branding & identity", "digital & print design", "photography"]
   },
   {
     "image": "./images/panels/panel_horn.png",
-    "alt": "Horn Entrepreneurship",
-    "slug": "horn"
+    "title": "Horn Entrepreneurship",
+    "slug": "horn",
+    "roles": ["art direction", "digital & print design", "photography"]
   },
   {
     "image": "./images/panels/panel_tenantu.png",
-    "alt": "TenantU",
-    "slug": "tenantu"
+    "title": "TenantU",
+    "slug": "tenantu",
+    "roles": ["branding & identity", "web design & development", "illustration"]
   },
   {
     "image": "./images/panels/panel_hub.png",
-    "alt": "Hub",
-    "slug": "hub"
+    "title": "Hub",
+    "slug": "hub",
+    "roles": ["UI/UX design"]
   },
   {
     "image": "./images/panels/panel_logos.png",
-    "alt": "Logos & Marks",
-    "slug": "logos"
+    "title": "Logos & Marks",
+    "slug": "logos",
+    "roles": ["branding & identity"]
   },
   {
     "image": "./images/panels/panel_misc.png",
-    "alt": "Odds & Ends",
-    "slug": "misc"
+    "title": "Odds & Ends",
+    "slug": "misc",
+    "roles": ["digital & print design", "illustration"]
   }
 ]
