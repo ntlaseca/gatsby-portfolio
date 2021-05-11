@@ -1,14 +1,15 @@
 const {
   api: { projectId, dataset },
 } = requireConfig("./studio/sanity.json")
+const path = require(`path`)
 
 module.exports = {
   flags: {
-    FAST_DEV: true,
-    PRESERVE_WEBPACK_CACHE: true
+    PRESERVE_WEBPACK_CACHE: true,
+    FAST_DEV: true
   },
   siteMetadata: {
-    title: `Nate Tlaseca – Portfolio`,
+    title: `Nate Tlaseca — Design & Development`,
     siteUrl: `https://natetlaseca.com`,
     description: `Nate Tlaseca is a human and creative web developer from Delaware.`
   },
@@ -17,7 +18,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `data`,
-        path: `${__dirname}/src/data`,
+        path: path.join(__dirname, `src`, `data`),
       },
     },
     {
@@ -30,11 +31,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Nate Tlaseca - Portfolio`,
+        name: `Nate Tlaseca — Design & Development`,
         short_name: `Nate Tlaseca`,
         lang: `en`,
         display: `standalone`,
-        icon: `src/data/images/logo.svg`,
+        icon: `src/data/images/logo-512.png`,
         cache_busting_mode: `none`,
         start_url: `/`,
         background_color: `#e6e6e6`,

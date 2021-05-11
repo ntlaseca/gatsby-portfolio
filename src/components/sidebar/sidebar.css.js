@@ -7,8 +7,8 @@ export const Wrapper = styled.aside`
   max-height: 100vh;
   top: 22.8rem;
 
-  & > div {
-    grid-column: span 6;
+  & p {
+    margin-top: 4.8rem;
   }
 
   ${MEDIA.DESKTOP`

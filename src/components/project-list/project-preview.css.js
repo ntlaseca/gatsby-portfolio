@@ -10,27 +10,34 @@ export const Preview = styled.div`
     text-decoration: none;
   }
 
-  & span {
-    display: block;
-    font-size: 1.6rem;
-  }
+  ${MEDIA.PHONE`
+    flex-wrap: wrap;
+  `}
+
 `
 
 export const Number = styled.div`
   padding-right: 2.4rem;
+
+  ${MEDIA.PHONE`
+    margin-bottom: 1.2rem;
+  `}
 `
 
 export const Container = styled.div`
   width: 100%;
+
+  & > span {
+    display: block;
+    font-size: 1em;
+    margin-top: 1em;
+  }
 `
 
 export const Row = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-
-  & h2 {
-  }
 
   & span {
     font-size: 4.8rem;
@@ -44,6 +51,10 @@ export const Row = styled.div`
   `}
 
   ${MEDIA.PHONE`
+    & h2 {
+      padding-right: 1.2rem;
+    }
+
     & span {
       font-size: 2.4rem;
       margin-left: initial;

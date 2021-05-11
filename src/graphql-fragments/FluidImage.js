@@ -3,14 +3,17 @@ import { graphql } from "gatsby"
 export const FluidImage = graphql`
   fragment FluidImage on File {
     childImageSharp {
-      gatsbyImageData(
-        layout: FULL_WIDTH
+      fluid(
+        maxWidth: 1440
         quality: 100
-        placeholder: TRACED_SVG
-        tracedSVGOptions: { color: "rgb(106,98,250)" }
-        formats: [AUTO, WEBP, AVIF]
-      )
+        traceSVG: {
+          color: "rgb(106,98,250)"
+        }
+        srcSetBreakpoints: [360, 720, 1080, 1440]
+      ) {
+        aspectRatio
+        ...GatsbyImageSharpFluid_tracedSVG
+      }
     }
-    publicURL
   }
 `

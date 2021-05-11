@@ -1,8 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Img from "gatsby-image"
 import Head from "components/head"
 import Section from "components/section"
-import { GatsbyImage } from "gatsby-plugin-image"
 import { Image } from "components/images/images.css"
 import Layout from "components/layout"
 import Sidebar from "components/sidebar/sidebar"
@@ -32,19 +32,7 @@ export const query = graphql`
           name
           base
           publicURL
-          childImageSharp {
-            gatsbyImageData(
-              layout: FULL_WIDTH
-              quality: 100
-              placeholder: TRACED_SVG
-              tracedSVGOptions: { color: "rgb(106,98,250)", turdSize: 32 }
-              formats: [AUTO, WEBP, AVIF]
-            )
-            original {
-              width
-              height
-            }
-          }
+          ...FluidImage
         }
       }
     }
@@ -74,11 +62,11 @@ const ProjectTemplate = ({ data, pageContext }) => {
       />
       <Main>
         {images.map((image, i) => {
-          const isSharp = !!image.node.childImageSharp
+          const isFluid = !!image.node.childImageSharp
 
-          const imageData = isSharp ? image.node.childImageSharp.gatsbyImageData : image.node.publicURL
+          const imageData = isFluid ? image.node.childImageSharp.fluid : image.node.publicURL
           const imageAlt = image.node.base.split(".")[0]
-          const imageRatio = isSharp ? (image.node.childImageSharp.original.width / image.node.childImageSharp.original.height) : .75
+          const imageRatio = isFluid ? image.node.childImageSharp.fluid.aspectRatio : .75
           const imageKey = image.node.id
 
           return (
@@ -96,8 +84,8 @@ const ProjectTemplate = ({ data, pageContext }) => {
                     alt={imageAlt}
                     key={imageKey}
                   />
-                : <GatsbyImage
-                    image={imageData}
+                : <Img
+                    fluid={imageData}
                     alt={imageAlt}
                     key={imageKey}
                   />

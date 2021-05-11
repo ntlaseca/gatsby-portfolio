@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import Img from "gatsby-image"
 import Layout from "components/layout"
 import Sidebar from "components/sidebar/sidebar"
 import Main from "components/main"
@@ -75,8 +75,8 @@ const Horn = ({ data }) => {
       />
       <Main>
         <Section span={6}>
-          <GatsbyImage
-            image={data.image1.childImageSharp.gatsbyImageData}
+          <Img
+            fluid={data.image1.childImageSharp.fluid}
             alt="A flyer, poster, and handbook cover for Horn Entrepreneurship"
           />
         </Section>
@@ -87,44 +87,44 @@ const Horn = ({ data }) => {
           />
         </Section>
         <Section span={6}>
-          <GatsbyImage
-            image={data.image3.childImageSharp.gatsbyImageData}
+          <Img
+            fluid={data.image3.childImageSharp.fluid}
             alt="Poster for the Tech Innovation Showcase"
           />
         </Section>
         <Section span={3}>
-          <GatsbyImage
-            image={data.image4.childImageSharp.gatsbyImageData}
+          <Img
+            fluid={data.image4.childImageSharp.fluid}
             alt="Brochure for the Tech Innovation Showcase"
           />
         </Section>
         <Section span={3}>
-          <GatsbyImage
-            image={data.image5.childImageSharp.gatsbyImageData}
+          <Img
+            fluid={data.image5.childImageSharp.fluid}
             alt="Brochure interior for the Tech Innovation Showcase"
           />
         </Section>
         <Section span={6}>
-          <GatsbyImage
-            image={data.image6.childImageSharp.gatsbyImageData}
+          <Img
+            fluid={data.image6.childImageSharp.fluid}
             alt="Inside page of the Success Stories book"
           />
         </Section>
         <Section span={6}>
-          <GatsbyImage
-            image={data.image7.childImageSharp.gatsbyImageData}
+          <Img
+            fluid={data.image7.childImageSharp.fluid}
             alt="Success Stories spread 1"
           />
         </Section>
         <Section span={6}>
-          <GatsbyImage
-            image={data.image8.childImageSharp.gatsbyImageData}
+          <Img
+            fluid={data.image8.childImageSharp.fluid}
             alt="Success Stories spread 2"
           />
         </Section>
         <Section span={6}>
-          <GatsbyImage
-            image={data.image9.childImageSharp.gatsbyImageData}
+          <Img
+            fluid={data.image9.childImageSharp.fluid}
             alt="Success Stories spread 3"
           />
         </Section>
@@ -132,14 +132,14 @@ const Horn = ({ data }) => {
           <RotatingCard />
         </Section>
         <Section span={6}>
-          <GatsbyImage
-            image={data.image10.childImageSharp.gatsbyImageData}
+          <Img
+            fluid={data.image10.childImageSharp.fluid}
             alt="Horn yearbook covers"
           />
         </Section>
         <Section span={6}>
-          <GatsbyImage
-            image={data.image11.childImageSharp.gatsbyImageData}
+          <Img
+            fluid={data.image11.childImageSharp.fluid}
             alt="VDC Game Night II flyer"
           />
         </Section>
@@ -150,14 +150,14 @@ const Horn = ({ data }) => {
           />
         </Section>
         <Section span={6}>
-          <GatsbyImage
-            image={data.image13.childImageSharp.gatsbyImageData}
+          <Img
+            fluid={data.image13.childImageSharp.fluid}
             alt="E-Club flyers"
           />
         </Section>
         <Section span={6}>
-          <GatsbyImage
-            image={data.image14.childImageSharp.gatsbyImageData}
+          <Img
+            fluid={data.image14.childImageSharp.fluid}
             alt="E-Club flyer arrangement"
           />
         </Section>
