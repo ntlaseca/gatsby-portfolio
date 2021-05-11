@@ -15,8 +15,8 @@ export const Container =  styled.div`
   ${MEDIA.DESKTOP`
     position: absolute;
     width: 100%;
-    height: 40%;
-    top: 20%;
+    height: 32rem;
+    top: 16.4rem;
     right: 0;
     bottom: 0;
     left: 20%;
@@ -25,5 +25,10 @@ export const Container =  styled.div`
     & canvas {
       opacity: .5;
     }
+  `}
+
+  ${MEDIA.TABLET`
+    height: 25.4rem;
+    top: 12.8rem;
   `}
 `

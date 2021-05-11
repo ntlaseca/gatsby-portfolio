@@ -51,6 +51,7 @@ export default function SelfPortrait(props) {
             contactShadow={false}
             shadows={false}
             intensity={0.75}
+            preset={"rembrandt"}
           >
             <Model {...props} />
           </Stage>
