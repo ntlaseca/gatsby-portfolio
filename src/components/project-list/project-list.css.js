@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const PreviewGrid = styled.div`
+  grid-column: span 6;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
-  grid-gap: 2.4rem;
+  grid-gap: 4.8rem;
   margin-top: 9.6rem;
 `

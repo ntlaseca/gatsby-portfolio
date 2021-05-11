@@ -10,7 +10,8 @@ const ProjectList = () => {
       allPreviewsJson {
         edges {
           node {
-            alt
+            title
+            roles
             slug
             image {
               childImageSharp {
@@ -34,13 +35,14 @@ const ProjectList = () => {
   return (
     <PreviewGrid>
       {previews.map(({ node: preview }, i) => {
-        const alt = preview.alt
+        const title = preview.title
+        const roles = preview.roles
         const slug = preview.slug
         const imageData = getImage(
           preview.image.childImageSharp.gatsbyImageData
         )
 
-        return <ProjectPreview alt={alt} slug={slug} imageData={imageData} key={i} />
+        return <ProjectPreview number={`0${i + 1}`} title={title} slug={slug} roles={roles} key={i} />
       })}
     </PreviewGrid>
   )
