@@ -1,17 +1,21 @@
 import React from "react"
 import { Link } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
+import { Preview, Number, Container, Row } from "./project-preview.css.js"
 
-const ProjectPreview = ({ slug, alt, imageData }) => {
-  return (
-    <div className="project-preview">
+const ProjectPreview = ({ number, slug, title, roles }) => (
+  <Preview>
+    <Number>{number}</Number>
+    <Container>
       <Link to={`/${slug}/`}>
-        <div className="view overlay">
-          <Img fluid={imageData} className="img-fluid" alt={alt} />
-        </div>
+        <Row>
+          <h2>{title}</h2>
+          <span>→</span>
+        </Row>       
       </Link>
-    </div>
-  )
-}
+      <span>{roles.join(", ")}</span>
+    </Container>
+  </Preview>
+)
 
 export default ProjectPreview

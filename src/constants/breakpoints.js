@@ -1,0 +1,7 @@
+const BREAKPOINTS = {
+  DESKTOP: 1200,
+  TABLET: 992,
+  PHONE: 576,
+};
+
+export default BREAKPOINTS

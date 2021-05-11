@@ -1,25 +1,41 @@
 import React from "react"
 import { Link } from "gatsby"
+import { Wrapper, MobileWrapper } from "./navigation.css"
 
-export const Navigation = ({ next, prev }) => {
-  return (
-    <div className="navigation slide-in animate-second d-flex justify-content-between">
-      <span className="mr-auto">
-        {prev &&
-          <Link to={`/${prev.slug}/`}>
-            Prev
-          </Link>
-        }
-      </span>
-      <span className="text-right">
-        {next &&
-          <Link to={`/${next.slug}/`}>
-            Next
-          </Link>
-        }
-      </span>
-    </div>
-  )
-}
+export const Navigation = ({ next, prev }) => (
+  <Wrapper>
+    <span className="mr-auto">
+      {prev && prev.slug ? (
+        <Link to={`/${prev.slug}/`}>Prev</Link>
+      ) : (
+        <Link to={`/${prev}/`}>Prev</Link>
+      )}
+    </span>
+    <span className="text-right">
+      {next && next.slug ? (
+        <Link to={`/${next.slug}/`}>Next</Link>
+      ) : (
+        <Link to={`/${next}/`}>Next</Link>
+      )}
+    </span>
+  </Wrapper>
+)
 
-export default Navigation
+export const MobileNavigation = ({ next, prev }) => (
+  <MobileWrapper>
+    <span className="mr-auto">
+      {prev && prev.slug ? (
+        <Link to={`/${prev.slug}/`}>Prev</Link>
+      ) : (
+        <Link to={`/${prev}/`}>Prev</Link>
+      )}
+    </span>
+    <span className="text-right">
+      {next && next.slug ? (
+        <Link to={`/${next.slug}/`}>Next</Link>
+      ) : (
+        <Link to={`/${next}/`}>Next</Link>
+      )}
+    </span>
+  </MobileWrapper>
+)

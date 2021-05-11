@@ -1,6 +1,8 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import ProjectPreview from "./project-preview"
+import { getImage } from "gatsby-plugin-image"
+import { PreviewGrid } from "./project-list.css"
 
 const ProjectList = () => {
   const data = useStaticQuery(graphql`
@@ -8,19 +10,18 @@ const ProjectList = () => {
       allPreviewsJson {
         edges {
           node {
-            alt
+            title
+            roles
             slug
             image {
               childImageSharp {
-                fluid(
-                  maxWidth: 960
+                gatsbyImageData(
+                  layout: FULL_WIDTH
                   quality: 100
-                  traceSVG: {
-                    color: "rgb(106,98,250)"
-                  }
-                ) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                }
+                  placeholder: TRACED_SVG
+                  tracedSVGOptions: { color: "rgb(106,98,250)" }
+                  formats: [AUTO, WEBP, AVIF]
+                )
               }
             }
           }
@@ -32,21 +33,18 @@ const ProjectList = () => {
   const previews = data.allPreviewsJson.edges
 
   return (
-    <div className="slide-in animate-third d-grid">
-      {previews.map(({ node: preview }) => {
-        const alt = preview.alt
+    <PreviewGrid>
+      {previews.map(({ node: preview }, i) => {
+        const title = preview.title
+        const roles = preview.roles
         const slug = preview.slug
-        const imageData = preview.image.childImageSharp.fluid
-
-        return (
-          <ProjectPreview
-            alt={alt}
-            slug={slug}
-            imageData={imageData}
-          />
+        const imageData = getImage(
+          preview.image.childImageSharp.gatsbyImageData
         )
+
+        return <ProjectPreview number={`0${i + 1}`} title={title} slug={slug} roles={roles} key={i} />
       })}
-    </div>
+    </PreviewGrid>
   )
 }
 

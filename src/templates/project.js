@@ -1,11 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Images from "../components/images"
-import Layout from "../components/layout"
-import Sidebar from "../components/sidebar/sidebar"
-import Navigation from "../components/sidebar/navigation"
-import Main from "../components/main"
-import SEO from "../components/seo"
+import Head from "components/head"
+import Section from "components/section"
+import { GatsbyImage } from "gatsby-plugin-image"
+import { Image } from "components/images/images.css"
+import Layout from "components/layout"
+import Sidebar from "components/sidebar/sidebar"
+import { MobileNavigation } from "components/sidebar/navigation"
+import Main from "components/main"
 
 export const query = graphql`
   query($slug: String!, $relativeDirectory: String!) {
@@ -26,22 +28,23 @@ export const query = graphql`
     ) {
       edges {
         node {
+          id
           name
           base
+          publicURL
           childImageSharp {
-            fluid(
-              maxWidth: 1440
+            gatsbyImageData(
+              layout: FULL_WIDTH
               quality: 100
-              traceSVG: {
-                color: "rgb(106,98,250)"
-              }
-              srcSetBreakpoints: [360, 720, 1080, 1440]
-            ) {
-              aspectRatio
-              ...GatsbyImageSharpFluid_tracedSVG
+              placeholder: TRACED_SVG
+              tracedSVGOptions: { color: "rgb(106,98,250)", turdSize: 32 }
+              formats: [AUTO, WEBP, AVIF]
+            )
+            original {
+              width
+              height
             }
           }
-          publicURL
         }
       }
     }
@@ -59,45 +62,53 @@ const ProjectTemplate = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <SEO
+      <Head 
         title={header}
         description={meta}
       />
-      <Sidebar>
-        <div>
-          <h2 className="slide-in animate-first">{header}</h2>
-          <p className="slide-in animate-second">{description}</p>
-        </div>
-        <Navigation
+      <Sidebar
+        header={header}
+        description={description}
+        next={next}
+        prev={prev}
+      />
+      <Main>
+        {images.map((image, i) => {
+          const isSharp = !!image.node.childImageSharp
+
+          const imageData = isSharp ? image.node.childImageSharp.gatsbyImageData : image.node.publicURL
+          const imageAlt = image.node.base.split(".")[0]
+          const imageRatio = isSharp ? (image.node.childImageSharp.original.width / image.node.childImageSharp.original.height) : .75
+          const imageKey = image.node.id
+
+          return (
+            <Section
+              span={
+                imageRatio === 1 ? "3"
+                : imageRatio < .6 ? "2"
+                : "6"
+              }
+              key={i}
+            >
+              {image.extension === "gif" 
+                ? <Image
+                    src={imageData}
+                    alt={imageAlt}
+                    key={imageKey}
+                  />
+                : <GatsbyImage
+                    image={imageData}
+                    alt={imageAlt}
+                    key={imageKey}
+                  />
+              }
+            </Section>
+          )
+        })}
+        <MobileNavigation 
           next={next}
           prev={prev}
         />
-      </Sidebar>
-      <Main>
-        <div className="slide-in animate-third d-grid col-12">
-          {images.map(image => {
-            const isFluid = !!image.node.childImageSharp
-
-            const imageData = isFluid ? image.node.childImageSharp.fluid : image.node.publicURL
-            const imageKey = isFluid ? image.node.childImageSharp.fluid.src : null
-            const imageRatio = isFluid ? image.node.childImageSharp.fluid.aspectRatio : .75
-
-            const imageAlt = image.node.base.split(".")[0]
-
-            return (
-              <Images
-                imageRatio={imageRatio}
-                imageData={imageData}
-                imageKey={imageKey}
-                imageAlt={imageAlt}
-              />
-            )
-          })}
-          <Navigation 
-            next={next}
-            prev={prev}
-          />
-        </div>
       </Main>
     </Layout>
   )

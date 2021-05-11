@@ -1,4 +1,13 @@
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+const path = require('path');
+const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
+
+exports.onCreateWebpackConfig = ({
+  stage,
+  getConfig,
+  rules,
+  loaders,
+  actions,
+}) => {
   if (stage === 'build-html') {
     actions.setWebpackConfig({
       module: {
@@ -11,7 +20,15 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       }
     })
   }
-}
+  actions.setWebpackConfig({
+    resolve: {
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+      plugins: [new DirectoryNamedWebpackPlugin({
+        exclude: /node_modules/
+      })],
+    },
+  });
+};
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const result = await graphql(`
@@ -47,11 +64,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   })
 }
 
-const pathsToIgnore = ['/tenantu']
+const pathsToIgnore = ['/tenantu', '/horn']
 
-exports.onCreatePage = ({ page, actions }) => {
+exports.onCreatePage = ({ page, actions: { deletePage } }) => {
   if (pathsToIgnore.includes(page.path)) {
-    const { deletePage } = actions
     deletePage(page)
   }
 }

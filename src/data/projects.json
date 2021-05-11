@@ -3,42 +3,36 @@
     "header": "Diamond Challenge",
     "slug": "diamond",
     "meta": "An assortment of advertisements, merchandise, and graphics for the Diamond Challenge.",
-    "description": "The Diamond Challenge is one of the largest international entrepreneurship pitch competitions for high school students. I created the program's visual identity with reimagined advertisements, merchandise, and other graphics, including a new logo.",
-    "roles": "brand identity, photography, digital & print design"
+    "description": "The Diamond Challenge is one of the largest international entrepreneurship pitch competitions for high school students. I created the program's visual identity with reimagined advertisements, merchandise, and other graphics, including a new logo."
   },
   {
     "header": "Horn Entrepreneurship",
     "slug": "horn",
     "meta": "A collection of work from my time at Horn Entrepreneurship.",
-    "description": "I served as the primary designer for Horn Entrepeneurship from 2015 to 2019, working on a range of projects including print, digital graphics, landing pages, and email templates. This a collection of some of my work.",
-    "roles": "art direction, photography, digital & print design"
+    "description": "I served as the primary designer for Horn Entrepeneurship from 2015 to 2019, working on a range of projects including print, digital graphics, landing pages, and email templates. This a collection of some of my work."
   },
   {
     "header": "TenantU",
     "slug": "tenantu",
     "meta": "TenantU is a startup specializing in student housing rentals and management.",
-    "description": "TenantU is a startup specializing in student housing rentals and management. I worked alongside the CEO and lead the development team in establishing an identity for their product. I also helped with coding some front-end layouts and components for the application.",
-    "roles": "front-end development, brand identity, digital design"
+    "description": "TenantU is a startup specializing in student housing rentals and management. I worked alongside the CEO and lead the development team in establishing an identity for their product. I also helped with coding some page templates and components for the website."
   },
   {
     "header": "Hub",
     "slug": "hub",
     "meta": "Hub is a mobile application concept for managing store inventory.",
-    "description": "Volunteering at a local bikeshop helped me generate the idea for Hub, an app that would allow users to browse a shop's inventory on their smartphones and for shop volunteers to easily manage shop inventory. It would also serve as a unified platform for communicating community events and updates.",
-    "roles": "concept, digital design"
+    "description": "Volunteering at a local bikeshop helped me generate the idea for Hub, an app that would allow users to browse a shop's inventory on their smartphones and for shop volunteers to easily manage shop inventory. It would also serve as a unified platform for communicating community events and updates."
   },
   {
     "header": "Logos & Marks",
     "slug": "logos",
     "meta": "A collection of logos and marks from over the years, created by yours truly.",
-    "description": "A collection of logos and marks from over the years.",
-    "roles": "digital design"
+    "description": "A collection of logos and marks from over the years."
   },
   {
     "header": "Odds & Ends",
     "slug": "misc",
     "meta": "An assortment of pieces from across time and space.",
-    "description": "Some things don't make the cut, never find the right home, or have simply never seen the light of day.",
-    "roles": "misc"
+    "description": "Some things don't make the cut, never find the right home, or have simply never seen the light of day."
   }
 ]

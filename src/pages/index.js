@@ -1,17 +1,35 @@
 import React from "react"
-import Layout from "../components/layout"
-import About from "../components/about/about"
-import Sketch from "../components/about/sketch"
-import sketch from "../components/about/self-portrait"
-import Main from "../components/main"
-import ProjectList from "../components/project-list/project-list"
-import SEO from "../components/seo"
+import { graphql } from "gatsby"
+import Head from "components/head"
+import Layout from "components/layout"
+import About from "components/about/about"
+import SelfPortrait from "components/self-portrait/self-portrait"
+import Main from "components/main"
+import ProjectList from "components/project-list/project-list"
 
-const IndexPage = () => {
+export const HomepageQuery = graphql`
+  query {
+    site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+      title
+      description
+      keywords
+    }
+  }
+`
+
+const IndexPage = ({ data }) => {
+  const title = data.site.title
+  const description = data.site.description
+  const keywords = data.site.keywords
+
   return (
     <Layout>
-      <SEO title="Home" />
-      <Sketch sketch={sketch} />
+      <Head 
+        title={title} 
+        description={description} 
+        keywords={keywords} 
+      />
+      <SelfPortrait />
       <Main>
         <About />
         <ProjectList />

@@ -1,17 +1,10 @@
 import React from "react"
-import Row from "react-bootstrap/Row"
-import Col from "react-bootstrap/Col"
+import { Bio } from "./about.css"
 
-const About = () => {
-  return (
-    <Row className="slide-in animate-first">
-      <Col xs={12} sm={12} md={12}>
-        <div id="bio">
-          <h1>Nate Tlaseca is a designer with an affection for the internet, digital media, and technology. He is a Delawarean and currently resides in Dallas, TX.</h1>
-        </div>
-      </Col>
-    </Row>
-  )
-}
+const About = () => (
+  <div>
+    <Bio>Nate Tlaseca is a Dallas-based web developer and designer with an affection for the internet, digital media, and technology.</Bio>
+  </div>
+)
 
 export default About
