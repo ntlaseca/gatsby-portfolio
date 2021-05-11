@@ -239,7 +239,6 @@ export default createGlobalStyle`
   h2 {
     font-size: 7rem;
     line-height: 1em;
-    margin-bottom: 1em;
 
     ${MEDIA.DESKTOP`
       font-size: 5.6rem;
@@ -253,7 +252,6 @@ export default createGlobalStyle`
   h3 {
     font-size: 5.4rem;
     line-height: 1em;
-    margin-bottom: 1em;
 
     ${MEDIA.DESKTOP`
       font-size: 4.2rem;
@@ -267,7 +265,6 @@ export default createGlobalStyle`
   h4 {
     font-size: 2.8rem;
     font-style: italic;
-    margin-bottom: 0.2em;
 
     ${MEDIA.DESKTOP`
       font-size: 2.4rem;
