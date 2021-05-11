@@ -9,7 +9,7 @@ export const Content = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: auto;
-  grid-gap: 4.8rem;
+  grid-gap: 6.4rem;
   padding-top: 19.6rem;
 
   ${MEDIA.DESKTOP`
