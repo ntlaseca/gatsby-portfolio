@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
 import { Preview, Number, Container, Row } from "./project-preview.css.js"
 
 const ProjectPreview = ({ number, slug, title, roles }) => (
