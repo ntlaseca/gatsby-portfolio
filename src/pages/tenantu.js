@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import Img from "gatsby-image"
 import Layout from "components/layout"
 import Sidebar from "components/sidebar/sidebar"
 import Main from "components/main"
@@ -49,14 +49,14 @@ const TenantU = ({ data }) => {
       />
       <Main>
         <Section span={6}>
-          <GatsbyImage
-            image={data.image1.childImageSharp.gatsbyImageData}
+          <Img
+            fluid={data.image1.childImageSharp.fluid}
             alt="Landing page mockup for the TenantU website"
           />
         </Section>
         <Section span={6}>
-          <GatsbyImage
-            image={data.image2.childImageSharp.gatsbyImageData}
+          <Img
+            fluid={data.image2.childImageSharp.fluid}
             alt="TenantU house illustrations"
           />
         </Section>
@@ -67,14 +67,14 @@ const TenantU = ({ data }) => {
           />
         </Section>
         <Section span={6}>
-          <GatsbyImage
-            image={data.image4.childImageSharp.gatsbyImageData}
+          <Img
+            fluid={data.image4.childImageSharp.fluid}
             alt="Icons for the TenantU UI"
           />
         </Section>
         <Section span={6}>
-          <GatsbyImage
-            image={data.image5.childImageSharp.gatsbyImageData}
+          <Img
+            fluid={data.image5.childImageSharp.fluid}
             alt="Mockup of the TenantU login screen, scaled to a mobile size"
           />
         </Section>
