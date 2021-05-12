@@ -12,6 +12,7 @@ const ProjectList = () => {
             title
             roles
             slug
+            link
           }
         }
       }
@@ -26,8 +27,18 @@ const ProjectList = () => {
         const title = preview.title
         const roles = preview.roles
         const slug = preview.slug
+        const link = preview.link
 
-        return <ProjectPreview number={`0${i + 1}`} title={title} slug={slug} roles={roles} key={i} />
+        return (
+          <ProjectPreview
+            number={`0${i + 1}`}
+            title={title}
+            roles={roles}
+            slug={slug}
+            link={link}
+            key={i}
+          />
+        )
       })}
     </PreviewGrid>
   )

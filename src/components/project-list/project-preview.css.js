@@ -8,6 +8,7 @@ export const Preview = styled.div`
 
   & a {
     text-decoration: none;
+    display: block;
   }
 
   ${MEDIA.PHONE`

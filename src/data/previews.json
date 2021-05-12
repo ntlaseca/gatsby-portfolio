@@ -1,36 +1,40 @@
 [
   {
-    "image": "./images/panels/panel_diamond-challenge.png",
+    "title": "Seca Services",
+    "link": "https://www.secaservices.com/",
+    "roles": ["branding & identity", "web design & development"]
+  },
+  {
+    "title": "Beanstack Blog",
+    "link": "https://www.beanstack.com/blog",
+    "roles": ["web design & development"]
+  },
+  {
     "title": "Diamond Challenge",
     "slug": "diamond",
     "roles": ["branding & identity", "digital & print design", "photography"]
   },
   {
-    "image": "./images/panels/panel_horn.png",
     "title": "Horn Entrepreneurship",
     "slug": "horn",
     "roles": ["art direction", "digital & print design", "photography"]
   },
   {
-    "image": "./images/panels/panel_tenantu.png",
     "title": "TenantU",
     "slug": "tenantu",
     "roles": ["branding & identity", "web design & development", "illustration"]
   },
   {
-    "image": "./images/panels/panel_hub.png",
     "title": "Hub",
     "slug": "hub",
     "roles": ["UI/UX design"]
   },
   {
-    "image": "./images/panels/panel_logos.png",
     "title": "Logos & Marks",
     "slug": "logos",
     "roles": ["branding & identity"]
   },
   {
-    "image": "./images/panels/panel_misc.png",
     "title": "Odds & Ends",
     "slug": "misc",
     "roles": ["digital & print design", "illustration"]
