@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "components/layout"
 import Sidebar from "components/sidebar/sidebar"
 import Main from "components/main"
@@ -17,19 +17,19 @@ export const dataQuery = graphql`
       description
     }
     image1: file(relativePath: { eq: "images/projects/tenantu/01 TenantU landing page.jpg" }) {
-      ...FluidImage
+      ...GatsbyFluidImage
     }
     image2: file(relativePath: { eq: "images/projects/tenantu/02 TenantU house illustrations.png" }) {
-      ...FluidImage
+      ...GatsbyFluidImage
     }
     image3: file(relativePath: { eq: "images/projects/tenantu/03 TenantU house illustrations.gif" }) {
       publicURL
     }
     image4: file(relativePath: { eq: "images/projects/tenantu/04 TenantU application icons.png" }) {
-      ...FluidImage
+      ...GatsbyFluidImage
     }
     image5: file(relativePath: { eq: "images/projects/tenantu/05 TenantU login screen.jpg" }) {
-      ...FluidImage
+      ...GatsbyFluidImage
     }
   }
 `
@@ -49,14 +49,14 @@ const TenantU = ({ data }) => {
       />
       <Main>
         <Section span={6}>
-          <Img
-            fluid={data.image1.childImageSharp.fluid}
+          <GatsbyImage
+            image={data.image1.childImageSharp.gatsbyImageData}
             alt="Landing page mockup for the TenantU website"
           />
         </Section>
         <Section span={6}>
-          <Img
-            fluid={data.image2.childImageSharp.fluid}
+          <GatsbyImage
+            image={data.image2.childImageSharp.gatsbyImageData}
             alt="TenantU house illustrations"
           />
         </Section>
@@ -67,14 +67,14 @@ const TenantU = ({ data }) => {
           />
         </Section>
         <Section span={6}>
-          <Img
-            fluid={data.image4.childImageSharp.fluid}
+          <GatsbyImage
+            image={data.image4.childImageSharp.gatsbyImageData}
             alt="Icons for the TenantU UI"
           />
         </Section>
         <Section span={6}>
-          <Img
-            fluid={data.image5.childImageSharp.fluid}
+          <GatsbyImage
+            image={data.image5.childImageSharp.gatsbyImageData}
             alt="Mockup of the TenantU login screen, scaled to a mobile size"
           />
         </Section>

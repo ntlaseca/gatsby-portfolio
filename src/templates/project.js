@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import Head from "components/head"
 import Section from "components/section"
 import { Image } from "components/images/images.css"
@@ -32,7 +32,7 @@ export const query = graphql`
           name
           base
           publicURL
-          ...FluidImage
+          ...GatsbyFluidImage
         }
       }
     }
@@ -62,11 +62,11 @@ const ProjectTemplate = ({ data, pageContext }) => {
       />
       <Main>
         {images.map((image, i) => {
-          const isFluid = !!image.node.childImageSharp
+          const isSharp = !!image.node.childImageSharp
 
-          const imageData = isFluid ? image.node.childImageSharp.fluid : image.node.publicURL
+          const imageData = isSharp ? image.node.childImageSharp.gatsbyImageData : image.node.publicURL
           const imageAlt = image.node.base.split(".")[0]
-          const imageRatio = isFluid ? image.node.childImageSharp.fluid.aspectRatio : .75
+          const imageRatio = isSharp ? (image.node.childImageSharp.original.width / image.node.childImageSharp.original.height) : .75
           const imageKey = image.node.id
 
           return (
@@ -84,8 +84,8 @@ const ProjectTemplate = ({ data, pageContext }) => {
                     alt={imageAlt}
                     key={imageKey}
                   />
-                : <Img
-                    fluid={imageData}
+                : <GatsbyImage
+                    image={imageData}
                     alt={imageAlt}
                     key={imageKey}
                   />

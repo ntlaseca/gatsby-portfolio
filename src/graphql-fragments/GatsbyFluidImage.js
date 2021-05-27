@@ -8,8 +8,12 @@ export const GatsbyFluidImage = graphql`
         quality: 100
         placeholder: TRACED_SVG
         tracedSVGOptions: { color: "rgb(106,98,250)" }
+        formats: [AUTO, WEBP, AVIF]
       )
+      original {
+        width
+        height
+      }
     }
-    publicURL
   }
 `
