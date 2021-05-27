@@ -4,12 +4,14 @@ import MEDIA from "helpers/mediaTemplates"
 export const Container =  styled.div`
   position: fixed;
   z-index: 0;
-  width: calc(33.333% - 4.8rem);
+  display: block;
+  width: calc(33.333% - 6.4rem);
   height: 60%;
 
   & canvas {
     width: 100% !important;
-    height: auto !important;
+    height: 100% !important;
+    display: block;
   }
 
   ${MEDIA.DESKTOP`
