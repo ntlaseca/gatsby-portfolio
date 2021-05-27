@@ -5,7 +5,7 @@
   "version": "2.0.0",
   "author": "Nate Tlaseca <nate.tlaseca@gmail.com>",
   "dependencies": {
-    "@react-three/drei": "^4.3.3",
+    "@react-three/drei": "^5.2.1",
     "@react-three/fiber": "^6.1.1",
     "@react-three/postprocessing": "^2.0.3",
     "framer-motion": "^4.1.11",
