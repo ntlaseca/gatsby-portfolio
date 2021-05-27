@@ -13,7 +13,7 @@ const Header = () => (
       }}
     >
       <Link to="/">
-        <img src={logo} alt="Nate Tlaseca's logo" />
+        <img src={logo} alt="Nate Tlaseca's logo" height="auto" width="auto" />
       </Link>
     </Logo>
   </Wrapper>
